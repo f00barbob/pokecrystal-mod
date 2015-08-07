@@ -1,28 +1,23 @@
-OlivinePunishmentSpeechHouse_MapScriptHeader: ; 0x9c635
-	; trigger count
+OlivinePunishmentSpeechHouse_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 0
-; 0x9c637
 
-PokefanMScript_0x9c637: ; 0x9c637
-	jumptextfaceplayer UnknownText_0x9c643
-; 0x9c63a
+OlivinePunishmentSpeechHouseDad:
+	jumptextfaceplayer OlivinePunishmentSpeechHouseDadText
 
-LassScript_0x9c63a: ; 0x9c63a
-	jumptextfaceplayer UnknownText_0x9c6b1
-; 0x9c63d
+OlivinePunishmentSpeechHouseDaughter:
+	jumptextfaceplayer OlivinePunishmentSpeechHouseDaughterText
 
-MapOlivinePunishmentSpeechHouseSignpost1Script: ; 0x9c63d
-	jumpstd $0002
-; 0x9c640
+OlivinePunishmentSpeechHouseBookshelf2:
+	jumpstd picturebookshelf
 
-MapOlivinePunishmentSpeechHouseSignpost0Script: ; 0x9c640
-	jumpstd $0003
-; 0x9c643
+OlivinePunishmentSpeechHouseBookshelf1:
+	jumpstd magazinebookshelf
 
-UnknownText_0x9c643: ; 0x9c643
+OlivinePunishmentSpeechHouseDadText:
 	text "Along the way to"
 	line "CIANWOOD, there"
 
@@ -33,35 +28,31 @@ UnknownText_0x9c643: ; 0x9c643
 	line "to the islands as"
 	cont "punishment!"
 	done
-; 0x9c6b1
 
-UnknownText_0x9c6b1: ; 0x9c6b1
+OlivinePunishmentSpeechHouseDaughterText:
 	text "Whenever I get in"
 	line "trouble, Daddy"
 	cont "always scares me."
 	done
-; 0x9c6e5
 
-OlivinePunishmentSpeechHouse_MapEventHeader: ; 0x9c6e5
+OlivinePunishmentSpeechHouse_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 2
 	warp_def $7, $2, 5, GROUP_OLIVINE_CITY, MAP_OLIVINE_CITY
 	warp_def $7, $3, 5, GROUP_OLIVINE_CITY, MAP_OLIVINE_CITY
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 2
-	signpost 1, 0, $0, MapOlivinePunishmentSpeechHouseSignpost0Script
-	signpost 1, 1, $0, MapOlivinePunishmentSpeechHouseSignpost1Script
+	signpost 1, 0, SIGNPOST_READ, OlivinePunishmentSpeechHouseBookshelf1
+	signpost 1, 1, SIGNPOST_READ, OlivinePunishmentSpeechHouseBookshelf2
 
-	; people-events
+.PersonEvents:
 	db 2
-	person_event SPRITE_POKEFAN_M, 6, 5, $3, $0, 255, 255, $0, 0, PokefanMScript_0x9c637, $ffff
-	person_event SPRITE_LASS, 9, 9, $5, $2, 255, 255, $0, 0, LassScript_0x9c63a, $ffff
-; 0x9c719
-
+	person_event SPRITE_POKEFAN_M, 6, 5, OW_DOWN | $3, $0, -1, -1, $0, 0, OlivinePunishmentSpeechHouseDad, -1
+	person_event SPRITE_LASS, 9, 9, OW_UP | $1, $2, -1, -1, $0, 0, OlivinePunishmentSpeechHouseDaughter, -1

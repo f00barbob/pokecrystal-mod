@@ -1,3 +1,6 @@
+INCLUDE "macros/enum.asm"
+INCLUDE "macros/basestats.asm"
+
 INCLUDE "macros/event.asm"
 INCLUDE "macros/sound.asm"
 INCLUDE "macros/text.asm"
@@ -6,9 +9,11 @@ INCLUDE "macros/move_effect.asm"
 INCLUDE "macros/move_anim.asm"
 INCLUDE "macros/movement.asm"
 INCLUDE "macros/map.asm"
+INCLUDE "macros/pic.asm"
 INCLUDE "macros/predef.asm"
 INCLUDE "macros/rst.asm"
 INCLUDE "macros/mobile.asm"
+INCLUDE "macros/trainer.asm"
 
 
 
@@ -33,6 +38,11 @@ dbw: MACRO
 dbbw: MACRO
 	db \1, \2
 	dw \3
+	ENDM
+
+dbww: MACRO
+	db \1
+	dw \2, \3
 	ENDM
 
 dbwww: MACRO
@@ -112,17 +122,6 @@ endanim: MACRO
 	db $ff
 	ENDM
 
-
-; Constant enumeration
-
-const_def: MACRO
-const_value SET 0
-ENDM
-
-const: MACRO
-\1 EQU const_value
-const_value SET const_value + 1
-ENDM
 
 
 sine_wave: MACRO

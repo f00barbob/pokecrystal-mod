@@ -1,40 +1,35 @@
-LakeofRageHiddenPowerHouse_MapScriptHeader: ; 0x19a525
-	; trigger count
+LakeofRageHiddenPowerHouse_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 0
-; 0x19a527
 
-FisherScript_0x19a527: ; 0x19a527
+HiddenPowerGuy:
 	faceplayer
 	loadfont
 	checkevent EVENT_GOT_TM10_HIDDEN_POWER
-	iftrue UnknownScript_0x19a542
-	writetext UnknownText_0x19a54b
+	iftrue .AlreadyGotItem
+	writetext HiddenPowerGuyText1
 	keeptextopen
-	verbosegiveitem TM_10, 1
-	iffalse UnknownScript_0x19a546
+	verbosegiveitem TM_HIDDEN_POWER, 1
+	iffalse .Done
 	setevent EVENT_GOT_TM10_HIDDEN_POWER
-	writetext UnknownText_0x19a5de
+	writetext HiddenPowerGuyText2
 	closetext
 	loadmovesprites
 	end
-; 0x19a542
-
-UnknownScript_0x19a542: ; 0x19a542
-	writetext UnknownText_0x19a673
+.AlreadyGotItem
+	writetext HiddenPowerGuyText3
 	closetext
-UnknownScript_0x19a546: ; 0x19a546
+.Done
 	loadmovesprites
 	end
-; 0x19a548
 
-MapLakeofRageHiddenPowerHouseSignpost1Script: ; 0x19a548
-	jumpstd $0001
-; 0x19a54b
+HiddenPowerHouseBookshelf:
+	jumpstd difficultbookshelf
 
-UnknownText_0x19a54b: ; 0x19a54b
+HiddenPowerGuyText1:
 	text "…You have strayed"
 	line "far…"
 
@@ -50,9 +45,8 @@ UnknownText_0x19a54b: ; 0x19a54b
 	para "#MON."
 	line "Take this, child."
 	done
-; 0x19a5de
 
-UnknownText_0x19a5de: ; 0x19a5de
+HiddenPowerGuyText2:
 	text "Do you see it? It"
 	line "is HIDDEN POWER!"
 
@@ -65,32 +59,28 @@ UnknownText_0x19a5de: ; 0x19a5de
 	cont "pend on the #-"
 	cont "MON using it."
 	done
-; 0x19a673
 
-UnknownText_0x19a673: ; 0x19a673
+HiddenPowerGuyText3:
 	text "I am meditating…"
 	done
-; 0x19a685
 
-LakeofRageHiddenPowerHouse_MapEventHeader: ; 0x19a685
+LakeofRageHiddenPowerHouse_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 2
 	warp_def $7, $2, 1, GROUP_LAKE_OF_RAGE, MAP_LAKE_OF_RAGE
 	warp_def $7, $3, 1, GROUP_LAKE_OF_RAGE, MAP_LAKE_OF_RAGE
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 2
-	signpost 1, 0, $0, MapLakeofRageHiddenPowerHouseSignpost1Script
-	signpost 1, 1, $0, MapLakeofRageHiddenPowerHouseSignpost1Script
+	signpost 1, 0, SIGNPOST_READ, HiddenPowerHouseBookshelf
+	signpost 1, 1, SIGNPOST_READ, HiddenPowerHouseBookshelf
 
-	; people-events
+.PersonEvents:
 	db 1
-	person_event SPRITE_FISHER, 7, 6, $3, $0, 255, 255, $0, 0, FisherScript_0x19a527, $ffff
-; 0x19a6ac
-
+	person_event SPRITE_FISHER, 7, 6, OW_DOWN | $3, $0, -1, -1, $0, 0, HiddenPowerGuy, -1

@@ -51,7 +51,7 @@ rTAC        EQU $ff07 ; Timer Control (R/W)
 rTAC_ON        EQU 2
 rTAC_4096_HZ   EQU 0
 rTAC_262144_HZ EQU 1
-rTAC_65536_HZ  EQU 2 
+rTAC_65536_HZ  EQU 2
 rTAC_16384_HZ  EQU 3
 rIF         EQU $ff0f ; Interrupt Flag (R/W)
 rNR10       EQU $ff10 ; Channel 1 Sweep register (R/W)
@@ -108,4 +108,3 @@ rUNKNOWN5   EQU $ff75 ; (8Fh) - Bit 4-6 (Read/Write)
 rUNKNOWN6   EQU $ff76 ; (00h) - Always 00h (Read Only)
 rUNKNOWN7   EQU $ff77 ; (00h) - Always 00h (Read Only)
 rIE         EQU $ffff ; Interrupt Enable (R/W)
-

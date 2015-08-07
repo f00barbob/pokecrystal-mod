@@ -1,166 +1,146 @@
-EarlsPokemonAcademy_MapScriptHeader: ; 0x68a5a
-	; trigger count
+EarlsPokemonAcademy_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 0
-; 0x68a5c
 
-FisherScript_0x68a5c: ; 0x68a5c
+AcademyEarl:
 	applymovement $2, MovementData_0x68b2d
 	faceplayer
 	loadfont
 	writetext UnknownText_0x68b3b
 	yesorno
-	iffalse UnknownScript_0x68a70
+	iffalse .Part1
 	writetext UnknownText_0x68bbd
 	yesorno
-	iffalse UnknownScript_0x68a7d
-UnknownScript_0x68a70: ; 0x68a70
+	iffalse .Done
+.Part1
 	writetext UnknownText_0x68c51
 	yesorno
-	iffalse UnknownScript_0x68a7d
+	iffalse .Done
 	writetext UnknownText_0x68c7b
 	closetext
 	loadmovesprites
 	end
-; 0x68a7d
 
-UnknownScript_0x68a7d: ; 0x68a7d
+.Done
 	writetext UnknownText_0x68d31
 	closetext
 	loadmovesprites
 	end
-; 0x68a83
 
-YoungsterScript_0x68a83: ; 0x68a83
+YoungsterScript_0x68a83:
 	jumptextfaceplayer UnknownText_0x68d80
-; 0x68a86
 
-GameboyKidScript_0x68a86: ; 0x68a86
+GameboyKidScript_0x68a86:
 	faceplayer
 	loadfont
 	writetext UnknownText_0x68dda
 	closetext
 	loadmovesprites
-	spriteface $4, $0
+	spriteface $4, DOWN
 	end
-; 0x68a91
 
-GameboyKidScript_0x68a91: ; 0x68a91
+GameboyKidScript_0x68a91:
 	faceplayer
 	loadfont
 	writetext UnknownText_0x68e07
 	closetext
 	loadmovesprites
-	spriteface $5, $0
+	spriteface $5, DOWN
 	end
-; 0x68a9c
 
-YoungsterScript_0x68a9c: ; 0x68a9c
+YoungsterScript_0x68a9c:
 	jumptextfaceplayer UnknownText_0x68e39
-; 0x68a9f
 
-MapEarlsPokemonAcademySignpost3Script: ; 0x68a9f
+AcademyBlackboard:
 	loadfont
-	writetext UnknownText_0x68eb2
-UnknownScript_0x68aa3: ; 0x68aa3
-	loadmenudata MenuDataHeader_0x68ae1
+	writetext AcademyBlackboardText
+.Loop
+	loadmenudata .MenuHeader
 	interpretmenu
 	writebackup
-	if_equal $1, UnknownScript_0x68abe
-	if_equal $2, UnknownScript_0x68ac5
-	if_equal $3, UnknownScript_0x68acc
-	if_equal $4, UnknownScript_0x68ad3
-	if_equal $5, UnknownScript_0x68ada
+	if_equal $1, .Poison
+	if_equal $2, .Paralysis
+	if_equal $3, .Sleep
+	if_equal $4, .Burn
+	if_equal $5, .Freeze
 	loadmovesprites
 	end
-; 0x68abe
 
-UnknownScript_0x68abe: ; 0x68abe
-	writetext UnknownText_0x68efe
+.Poison
+	writetext AcademyPoisonText
 	closetext
-	jump UnknownScript_0x68aa3
-; 0x68ac5
+	jump .Loop
 
-UnknownScript_0x68ac5: ; 0x68ac5
-	writetext UnknownText_0x68f80
+.Paralysis
+	writetext AcademyParalysisText
 	closetext
-	jump UnknownScript_0x68aa3
-; 0x68acc
+	jump .Loop
 
-UnknownScript_0x68acc: ; 0x68acc
-	writetext UnknownText_0x68fe2
+.Sleep
+	writetext AcademySleepText
 	closetext
-	jump UnknownScript_0x68aa3
-; 0x68ad3
+	jump .Loop
 
-UnknownScript_0x68ad3: ; 0x68ad3
-	writetext UnknownText_0x69055
+.Burn
+	writetext AcademyBurnText
 	closetext
-	jump UnknownScript_0x68aa3
-; 0x68ada
+	jump .Loop
 
-UnknownScript_0x68ada: ; 0x68ada
-	writetext UnknownText_0x690cb
+.Freeze:
+	writetext AcademyFreezeText
 	closetext
-	jump UnknownScript_0x68aa3
-; 0x68ae1
+	jump .Loop
 
-
-MenuDataHeader_0x68ae1: ; 0x68ae1
+.MenuHeader
 	db $40 ; flags
 	db 00, 00 ; start coords
 	db 08, 11 ; end coords
-	dw MenuData2_0x68ae9
+	dw .Data
 	db 1 ; default option
-; 0x68ae9
 
-MenuData2_0x68ae9: ; 0x68ae9
+.Data
 	db $80 ; flags
 	dn 3, 2 ; rows, columns
 	db 5 ; spacing
-	dbw BANK(UnknownText_0x68af2), UnknownText_0x68af2
+	dbw BANK(.Text), .Text
 	dbw $1a, $0000
-; 0x68af2
 
-UnknownText_0x68af2: ; 0x68af2
+.Text
 	db "PSN@"
 	db "PAR@"
 	db "SLP@"
 	db "BRN@"
 	db "FRZ@"
 	db "QUIT@"
-; 0x68b0b
 
-
-PokedexScript_0x68b0b: ; 0x68b0b
+AcademyNotebook:
 	loadfont
-	writetext UnknownText_0x69136
+	writetext AcademyNotebookText
 	yesorno
-	iffalse UnknownScript_0x68b25
-	writetext UnknownText_0x69197
+	iffalse .Done
+	writetext AcademyNotebookText1
 	yesorno
-	iffalse UnknownScript_0x68b25
-	writetext UnknownText_0x69207
+	iffalse .Done
+	writetext AcademyNotebookText2
 	yesorno
-	iffalse UnknownScript_0x68b25
-	writetext UnknownText_0x69287
+	iffalse .Done
+	writetext AcademyNotebookText3
 	closetext
-UnknownScript_0x68b25: ; 0x68b25
+.Done
 	loadmovesprites
 	end
-; 0x68b27
 
-UnknownScript_0x68b27: ; 0x68b27
-	jumptext UnknownText_0x69344
-; 0x68b2a
+AcademyStickerMachine:
+; unused
+	jumptext AcademyStickerMachineText
 
-MapEarlsPokemonAcademySignpost1Script: ; 0x68b2a
-	jumpstd $0001
-; 0x68b2d
+AcademyBookshelf:
+	jumpstd difficultbookshelf
 
-MovementData_0x68b2d: ; 0x68b2d
+MovementData_0x68b2d:
 	turn_head_down
 	turn_head_left
 	turn_head_up
@@ -175,9 +155,8 @@ MovementData_0x68b2d: ; 0x68b2d
 	turn_head_right
 	turn_head_down
 	step_end
-; 0x68b3b
 
-UnknownText_0x68b3b: ; 0x68b3b
+UnknownText_0x68b3b:
 	text "EARL, I am!"
 
 	para "Wonderful are"
@@ -191,9 +170,8 @@ UnknownText_0x68b3b: ; 0x68b3b
 	line "know? Want to be"
 	cont "a winner is you?"
 	done
-; 0x68bbd
 
-UnknownText_0x68bbd: ; 0x68bbd
+UnknownText_0x68bbd:
 	text "Good! Teach you,"
 	line "I will!"
 
@@ -208,16 +186,14 @@ UnknownText_0x68bbd: ; 0x68bbd
 	para "More from me you"
 	line "want to hear?"
 	done
-; 0x68c51
 
-UnknownText_0x68c51: ; 0x68c51
+UnknownText_0x68c51:
 	text "So, want to know"
 	line "how to raise"
 	cont "#MON well?"
 	done
-; 0x68c7b
 
-UnknownText_0x68c7b: ; 0x68c7b
+UnknownText_0x68c7b:
 	text "Fine! Teach you,"
 	line "I will!"
 
@@ -237,9 +213,8 @@ UnknownText_0x68c7b: ; 0x68c7b
 	line "#MON strong"
 	cont "become!"
 	done
-; 0x68d31
 
-UnknownText_0x68d31: ; 0x68d31
+UnknownText_0x68d31:
 	text "Oh! Smart student"
 	line "you are! Nothing"
 	cont "more do I teach!"
@@ -247,9 +222,8 @@ UnknownText_0x68d31: ; 0x68d31
 	para "Good to #MON"
 	line "you must be!"
 	done
-; 0x68d80
 
-UnknownText_0x68d80: ; 0x68d80
+UnknownText_0x68d80:
 	text "I'm taking notes"
 	line "of the teacher's"
 	cont "lecture."
@@ -258,23 +232,20 @@ UnknownText_0x68d80: ; 0x68d80
 	line "the stuff on the"
 	cont "blackboard too."
 	done
-; 0x68dda
 
-UnknownText_0x68dda: ; 0x68dda
+UnknownText_0x68dda:
 	text "I traded my best"
 	line "#MON to the"
 	cont "guy beside me."
 	done
-; 0x68e07
 
-UnknownText_0x68e07: ; 0x68e07
+UnknownText_0x68e07:
 	text "Huh? The #MON I"
 	line "just got is hold-"
 	cont "ing something!"
 	done
-; 0x68e39
 
-UnknownText_0x68e39: ; 0x68e39
+UnknownText_0x68e39:
 	text "A #MON holding"
 	line "a BERRY will heal"
 	cont "itself in battle."
@@ -286,23 +257,21 @@ UnknownText_0x68e39: ; 0x68e39
 	para "It sure is tough"
 	line "taking notes…"
 	done
-; 0x68eb2
 
-UnknownText_0x68eb2: ; 0x68eb2
+AcademyBlackboardText:
 	text "The blackboard"
 	line "describes #MON"
 
 	para "status changes in"
 	line "battle."
 	done
-; 0x68eeb
 
-UnknownText_0x68eeb: ; 0x68eeb
+AcademyBlackboardText2:
+; unused
 	text "Read which topic?"
 	done
-; 0x68efe
 
-UnknownText_0x68efe: ; 0x68efe
+AcademyPoisonText:
 	text "If poisoned, a"
 	line "#MON steadily"
 	cont "loses HP."
@@ -316,9 +285,8 @@ UnknownText_0x68efe: ; 0x68efe
 	para "To cure it, use an"
 	line "ANTIDOTE."
 	done
-; 0x68f80
 
-UnknownText_0x68f80: ; 0x68f80
+AcademyParalysisText:
 	text "Paralysis reduces"
 	line "speed and may"
 	cont "prevent movement."
@@ -327,9 +295,8 @@ UnknownText_0x68f80: ; 0x68f80
 	line "battle, so use"
 	cont "a PARLYZ HEAL."
 	done
-; 0x68fe2
 
-UnknownText_0x68fe2: ; 0x68fe2
+AcademySleepText:
 	text "If asleep, your"
 	line "#MON can't make"
 	cont "a move."
@@ -341,9 +308,8 @@ UnknownText_0x68fe2: ; 0x68fe2
 	para "Wake it up with"
 	line "an AWAKENING."
 	done
-; 0x69055
 
-UnknownText_0x69055: ; 0x69055
+AcademyBurnText:
 	text "A burn steadily"
 	line "consumes HP."
 
@@ -356,9 +322,8 @@ UnknownText_0x69055: ; 0x69055
 	para "Use a BURN HEAL as"
 	line "the cure."
 	done
-; 0x690cb
 
-UnknownText_0x690cb: ; 0x690cb
+AcademyFreezeText:
 	text "If your #MON is"
 	line "frozen, it can't"
 	cont "do a thing."
@@ -369,9 +334,8 @@ UnknownText_0x690cb: ; 0x690cb
 	para "Thaw it out with"
 	line "an ICE HEAL."
 	done
-; 0x69136
 
-UnknownText_0x69136: ; 0x69136
+AcademyNotebookText:
 	text "It's this kid's"
 	line "notebook…"
 
@@ -383,9 +347,8 @@ UnknownText_0x69136: ; 0x69136
 
 	para "Keep reading?"
 	done
-; 0x69197
 
-UnknownText_0x69197: ; 0x69197
+AcademyNotebookText1:
 	text "Before throwing a"
 	line "# BALL, weaken"
 	cont "the target first."
@@ -396,9 +359,8 @@ UnknownText_0x69197: ; 0x69197
 
 	para "Keep reading?"
 	done
-; 0x69207
 
-UnknownText_0x69207: ; 0x69207
+AcademyNotebookText2:
 	text "Some moves may"
 	line "cause confusion."
 
@@ -412,9 +374,8 @@ UnknownText_0x69207: ; 0x69207
 
 	para "Keep reading?"
 	done
-; 0x69287
 
-UnknownText_0x69287: ; 0x69287
+AcademyNotebookText3:
 	text "People who catch"
 	line "and use #MON"
 
@@ -435,42 +396,38 @@ UnknownText_0x69287: ; 0x69287
 	para "I haven't written"
 	line "anymore…"
 	done
-; 0x69344
 
-UnknownText_0x69344: ; 0x69344
+AcademyStickerMachineText:
 	text "This super machine"
 	line "prints data out as"
 
 	para "stickers!"
 	done
-; 0x69375
 
-EarlsPokemonAcademy_MapEventHeader: ; 0x69375
+EarlsPokemonAcademy_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 2
 	warp_def $f, $3, 3, GROUP_VIOLET_CITY, MAP_VIOLET_CITY
 	warp_def $f, $4, 3, GROUP_VIOLET_CITY, MAP_VIOLET_CITY
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 4
-	signpost 1, 0, $0, MapEarlsPokemonAcademySignpost1Script
-	signpost 1, 1, $0, MapEarlsPokemonAcademySignpost1Script
-	signpost 0, 3, $0, MapEarlsPokemonAcademySignpost3Script
-	signpost 0, 4, $0, MapEarlsPokemonAcademySignpost3Script
+	signpost 1, 0, SIGNPOST_READ, AcademyBookshelf
+	signpost 1, 1, SIGNPOST_READ, AcademyBookshelf
+	signpost 0, 3, SIGNPOST_READ, AcademyBlackboard
+	signpost 0, 4, SIGNPOST_READ, AcademyBlackboard
 
-	; people-events
+.PersonEvents:
 	db 6
-	person_event SPRITE_FISHER, 6, 8, $6, $0, 255, 255, $a0, 0, FisherScript_0x68a5c, $06cb
-	person_event SPRITE_YOUNGSTER, 9, 6, $7, $0, 255, 255, $80, 0, YoungsterScript_0x68a83, $ffff
-	person_event SPRITE_GAMEBOY_KID, 15, 7, $6, $0, 255, 255, $0, 0, GameboyKidScript_0x68a86, $ffff
-	person_event SPRITE_GAMEBOY_KID, 15, 8, $8, $0, 255, 255, $80, 0, GameboyKidScript_0x68a91, $ffff
-	person_event SPRITE_YOUNGSTER, 11, 8, $7, $0, 255, 255, $0, 0, YoungsterScript_0x68a9c, $ffff
-	person_event SPRITE_POKEDEX, 8, 6, $1, $0, 255, 255, $0, 0, PokedexScript_0x68b0b, $ffff
-; 0x693e7
-
+	person_event SPRITE_FISHER, 6, 8, OW_UP | $2, $0, -1, -1, (PAL_OW_GREEN << 4) | $80, 0, AcademyEarl, EVENT_EARLS_ACADEMY_EARL
+	person_event SPRITE_YOUNGSTER, 9, 6, OW_UP | $3, $0, -1, -1, (PAL_OW_RED << 4) | $80, 0, YoungsterScript_0x68a83, -1
+	person_event SPRITE_GAMEBOY_KID, 15, 7, OW_UP | $2, $0, -1, -1, $0, 0, GameboyKidScript_0x68a86, -1
+	person_event SPRITE_GAMEBOY_KID, 15, 8, OW_LEFT | $0, $0, -1, -1, (PAL_OW_RED << 4) | $80, 0, GameboyKidScript_0x68a91, -1
+	person_event SPRITE_YOUNGSTER, 11, 8, OW_UP | $3, $0, -1, -1, $0, 0, YoungsterScript_0x68a9c, -1
+	person_event SPRITE_POKEDEX, 8, 6, OW_DOWN | $1, $0, -1, -1, $0, 0, AcademyNotebook, -1

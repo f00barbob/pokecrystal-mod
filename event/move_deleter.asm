@@ -1,11 +1,11 @@
-Function2c547: ; 2c547
+MoveDeletion:
 	ld hl, UnknownText_0x2c5ef
 	call PrintText
 	call YesNoBox
 	jr c, .asm_2c5c3
 	ld hl, UnknownText_0x2c5f4
 	call PrintText
-	callba Function50000
+	callba SelectMonFromParty
 	jr c, .asm_2c5c3
 	ld a, [CurPartySpecies]
 	cp EGG
@@ -58,7 +58,6 @@ Function2c547: ; 2c547
 	ld hl, UnknownText_0x2c5d1
 	call PrintText
 	ret
-; 2c5d1
 
 UnknownText_0x2c5d1: ; 0x2c5d1
 	; That #MON knows only one move.
@@ -165,4 +164,3 @@ Function2c5f9: ; 2c5f9
 	xor a
 	ld [hl], a
 	ret
-; 2c642

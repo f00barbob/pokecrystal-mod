@@ -7,7 +7,7 @@ MD5 := md5sum -c --quiet
 .SECONDEXPANSION:
 
 poketools := extras/pokemontools
-gfx       := $(PYTHON) $(poketools)/gfx.py
+gfx       := $(PYTHON) gfx.py
 includes  := $(PYTHON) $(poketools)/scan_includes.py
 
 
@@ -62,9 +62,6 @@ compare: pokecrystal.gbc pokecrystal11.gbc
 
 %.asm: ;
 $(all_obj): $$*.asm $$($$*_dep)
-	@$(gfx) 2bpp $(2bppq); $(eval 2bppq :=)
-	@$(gfx) 1bpp $(1bppq); $(eval 1bppq :=)
-	@$(gfx) lz   $(lzq);   $(eval lzq   :=)
 	rgbasm -o $@ $<
 
 pokecrystal11.gbc: $(crystal11_obj)
@@ -79,15 +76,16 @@ pokecrystal.gbc: $(crystal_obj)
 pngs:
 	find . -iname "*.lz"      -exec $(gfx) unlz {} +
 	find . -iname "*.[12]bpp" -exec $(gfx) png  {} +
-	find . -iname "*.lz"      -exec touch {} +
 	find . -iname "*.[12]bpp" -exec touch {} +
+	find . -iname "*.lz"      -exec touch {} +
 
-%.2bpp: %.png ; $(eval 2bppq += $<) @rm -f $@
-%.1bpp: %.png ; $(eval 1bppq += $<) @rm -f $@
-%.lz:   %     ; $(eval lzq   += $<) @rm -f $@
+%.2bpp: %.png ; $(gfx) 2bpp $<
+%.1bpp: %.png ; $(gfx) 1bpp $<
+%.lz:   %     ; $(gfx) lz $<
 
 
-%.pal: ;
+%.pal: %.2bpp ;
+gfx/pics/%/normal.pal gfx/pics/%/bitmask.asm gfx/pics/%/frames.asm: gfx/pics/%/front.2bpp ;
 %.bin: ;
 %.blk: ;
 %.tilemap: ;

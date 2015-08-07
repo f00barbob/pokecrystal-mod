@@ -1,37 +1,30 @@
-EcruteakCity_MapScriptHeader: ; 0x1a4000
-	; trigger count
+EcruteakCity_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 1
 
 	; callbacks
+	dbw 5, .FlyPoint
 
-	dbw 5, UnknownScript_0x1a4005
-; 0x1a4005
-
-UnknownScript_0x1a4005: ; 0x1a4005
-	setflag $0048
+.FlyPoint
+	setflag ENGINE_FLYPOINT_ECRUTEAK
 	return
-; 0x1a4009
 
-GrampsScript_0x1a4009: ; 0x1a4009
+GrampsScript_0x1a4009:
 	jumptextfaceplayer UnknownText_0x1a4105
-; 0x1a400c
 
-GrampsScript_0x1a400c: ; 0x1a400c
+GrampsScript_0x1a400c:
 	jumptextfaceplayer UnknownText_0x1a4147
-; 0x1a400f
 
-GrampsScript_0x1a400f: ; 0x1a400f
+GrampsScript_0x1a400f:
 	jumptextfaceplayer UnknownText_0x1a43cb
-; 0x1a4012
 
-LassScript_0x1a4012: ; 0x1a4012
+LassScript_0x1a4012:
 	jumptextfaceplayer UnknownText_0x1a41db
-; 0x1a4015
 
-LassScript_0x1a4015: ; 0x1a4015
+LassScript_0x1a4015:
 	faceplayer
 	loadfont
 	checkevent EVENT_RELEASED_THE_BEASTS
@@ -40,16 +33,14 @@ LassScript_0x1a4015: ; 0x1a4015
 	closetext
 	loadmovesprites
 	end
-; 0x1a4023
 
-UnknownScript_0x1a4023: ; 0x1a4023
+UnknownScript_0x1a4023:
 	writetext UnknownText_0x1a4269
 	closetext
 	loadmovesprites
 	end
-; 0x1a4029
 
-FisherScript_0x1a4029: ; 0x1a4029
+FisherScript_0x1a4029:
 	faceplayer
 	loadfont
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
@@ -58,54 +49,41 @@ FisherScript_0x1a4029: ; 0x1a4029
 	closetext
 	loadmovesprites
 	end
-; 0x1a4037
 
-UnknownScript_0x1a4037: ; 0x1a4037
+UnknownScript_0x1a4037:
 	writetext UnknownText_0x1a4325
 	closetext
 	loadmovesprites
 	end
-; 0x1a403d
 
-YoungsterScript_0x1a403d: ; 0x1a403d
+YoungsterScript_0x1a403d:
 	jumptextfaceplayer UnknownText_0x1a4386
-; 0x1a4040
 
-MapEcruteakCitySignpost0Script: ; 0x1a4040
-	jumptext UnknownText_0x1a44d1
-; 0x1a4043
+EcruteakCitySign:
+	jumptext EcruteakCitySignText
 
-MapEcruteakCitySignpost1Script: ; 0x1a4043
-	jumptext UnknownText_0x1a4513
-; 0x1a4046
+TinTowerSign:
+	jumptext TinTowerSignText
 
-MapEcruteakCitySignpost2Script: ; 0x1a4046
-	jumptext UnknownText_0x1a4548
-; 0x1a4049
+EcruteakGymSign:
+	jumptext EcruteakGymSignText
 
-MapEcruteakCitySignpost3Script: ; 0x1a4049
-	jumptext UnknownText_0x1a458c
-; 0x1a404c
+EcruteakDanceTheaterSign:
+	jumptext EcruteakDanceTheaterSignText
 
-MapEcruteakCitySignpost4Script: ; 0x1a404c
-	jumptext UnknownText_0x1a45a4
-; 0x1a404f
+BurnedTowerSign:
+	jumptext BurnedTowerSignText
 
-MapEcruteakCitySignpost5Script: ; 0x1a404f
-	jumpstd $0010
-; 0x1a4052
+EcruteakCityPokeCenterSign:
+	jumpstd pokecentersign
 
-MapEcruteakCitySignpost6Script: ; 0x1a4052
-	jumpstd $0011
-; 0x1a4055
+EcruteakCityMartSign:
+	jumpstd martsign
 
-MapEcruteakCitySignpostItem7: ; 0x1a4055
-	dw $00b4
-	db HYPER_POTION
-	
-; 0x1a4058
+MapEcruteakCitySignpostItem7:
+	dwb EVENT_ECRUTEAK_CITY_HIDDEN_HYPER_POTION, HYPER_POTION
 
-UnusedMissingDaughterText: ; 0x1a4058
+UnusedMissingDaughterText:
 ; This text is neither used nor referenced in the final game.
 	text "Oh, no. Oh, no…"
 
@@ -126,16 +104,15 @@ UnusedMissingDaughterText: ; 0x1a4058
 	line "do…?"
 	done
 
-UnknownText_0x1a4105: ; 0x1a4105
+UnknownText_0x1a4105:
 	text "ECRUTEAK used to"
 	line "have two towers:"
 
 	para "one each in the"
 	line "east and west."
 	done
-; 0x1a4147
 
-UnknownText_0x1a4147: ; 0x1a4147
+UnknownText_0x1a4147:
 	text "Ah, child."
 	line "Have you learned"
 
@@ -149,18 +126,16 @@ UnknownText_0x1a4147: ; 0x1a4147
 	line "give you something"
 	cont "nice, I hear."
 	done
-; 0x1a41db
 
-UnknownText_0x1a41db: ; 0x1a41db
+UnknownText_0x1a41db:
 	text "I'm going to prac-"
 	line "tice at the DANCE"
 
 	para "THEATER. Care to"
 	line "join me?"
 	done
-; 0x1a421a
 
-UnknownText_0x1a421a: ; 0x1a421a
+UnknownText_0x1a421a:
 	text "The tower that"
 	line "used to be here…"
 
@@ -168,17 +143,15 @@ UnknownText_0x1a421a: ; 0x1a421a
 	line "it used to be much"
 	cont "taller."
 	done
-; 0x1a4269
 
-UnknownText_0x1a4269: ; 0x1a4269
+UnknownText_0x1a4269:
 	text "Three big #MON"
 	line "ran off in differ-"
 	cont "ent directions."
 	cont "What were they?"
 	done
-; 0x1a42ac
 
-UnknownText_0x1a42ac: ; 0x1a42ac
+UnknownText_0x1a42ac:
 	text "I heard a rumor"
 	line "about OLIVINE"
 	cont "LIGHTHOUSE."
@@ -190,9 +163,8 @@ UnknownText_0x1a42ac: ; 0x1a42ac
 	line "Sounds like they"
 	cont "are in trouble."
 	done
-; 0x1a4325
 
-UnknownText_0x1a4325: ; 0x1a4325
+UnknownText_0x1a4325:
 	text "The #MON at"
 	line "OLIVINE LIGHTHOUSE"
 	cont "has been cured."
@@ -201,18 +173,16 @@ UnknownText_0x1a4325: ; 0x1a4325
 	line "sail out to sea at"
 	cont "night again."
 	done
-; 0x1a4386
 
-UnknownText_0x1a4386: ; 0x1a4386
+UnknownText_0x1a4386:
 	text "I hear #MON are"
 	line "rampaging at the"
 
 	para "LAKE OF RAGE. I'd"
 	line "like to see that."
 	done
-; 0x1a43cb
 
-UnknownText_0x1a43cb: ; 0x1a43cb
+UnknownText_0x1a43cb:
 	text "In the distant"
 	line "past…"
 
@@ -240,27 +210,24 @@ UnknownText_0x1a43cb: ; 0x1a43cb
 	line "way back when."
 	cont "Hohoho!"
 	done
-; 0x1a44d1
 
-UnknownText_0x1a44d1: ; 0x1a44d1
+EcruteakCitySignText:
 	text "ECRUTEAK CITY"
 	line "A Historical City"
 
 	para "Where the Past"
 	line "Meets the Present"
 	done
-; 0x1a4513
 
-UnknownText_0x1a4513: ; 0x1a4513
+TinTowerSignText:
 	text "TIN TOWER"
 
 	para "A legendary #-"
 	line "MON is said to"
 	cont "roost here."
 	done
-; 0x1a4548
 
-UnknownText_0x1a4548: ; 0x1a4548
+EcruteakGymSignText:
 	text "ECRUTEAK CITY"
 	line "#MON GYM"
 	cont "LEADER: MORTY"
@@ -268,15 +235,13 @@ UnknownText_0x1a4548: ; 0x1a4548
 	para "The Mystic Seer of"
 	line "the Future"
 	done
-; 0x1a458c
 
-UnknownText_0x1a458c: ; 0x1a458c
+EcruteakDanceTheaterSignText:
 	text "ECRUTEAK DANCE"
 	line "THEATER"
 	done
-; 0x1a45a4
 
-UnknownText_0x1a45a4: ; 0x1a45a4
+BurnedTowerSignText:
 	text "BURNED TOWER"
 
 	para "It was destroyed"
@@ -286,13 +251,12 @@ UnknownText_0x1a45a4: ; 0x1a45a4
 	para "Please stay away,"
 	line "as it is unsafe."
 	done
-; 0x1a45fc
 
-EcruteakCity_MapEventHeader: ; 0x1a45fc
+EcruteakCity_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 15
 	warp_def $1a, $23, 1, GROUP_ROUTE_42_ECRUTEAK_GATE, MAP_ROUTE_42_ECRUTEAK_GATE
 	warp_def $1b, $23, 2, GROUP_ROUTE_42_ECRUTEAK_GATE, MAP_ROUTE_42_ECRUTEAK_GATE
@@ -310,28 +274,26 @@ EcruteakCity_MapEventHeader: ; 0x1a45fc
 	warp_def $12, $0, 3, GROUP_ROUTE_38_ECRUTEAK_GATE, MAP_ROUTE_38_ECRUTEAK_GATE
 	warp_def $13, $0, 4, GROUP_ROUTE_38_ECRUTEAK_GATE, MAP_ROUTE_38_ECRUTEAK_GATE
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 8
-	signpost 21, 15, $0, MapEcruteakCitySignpost0Script
-	signpost 10, 38, $0, MapEcruteakCitySignpost1Script
-	signpost 28, 8, $0, MapEcruteakCitySignpost2Script
-	signpost 21, 21, $0, MapEcruteakCitySignpost3Script
-	signpost 10, 2, $0, MapEcruteakCitySignpost4Script
-	signpost 27, 24, $0, MapEcruteakCitySignpost5Script
-	signpost 21, 30, $0, MapEcruteakCitySignpost6Script
-	signpost 14, 23, $7, MapEcruteakCitySignpostItem7
+	signpost 21, 15, SIGNPOST_READ, EcruteakCitySign
+	signpost 10, 38, SIGNPOST_READ, TinTowerSign
+	signpost 28, 8, SIGNPOST_READ, EcruteakGymSign
+	signpost 21, 21, SIGNPOST_READ, EcruteakDanceTheaterSign
+	signpost 10, 2, SIGNPOST_READ, BurnedTowerSign
+	signpost 27, 24, SIGNPOST_READ, EcruteakCityPokeCenterSign
+	signpost 21, 30, SIGNPOST_READ, EcruteakCityMartSign
+	signpost 14, 23, SIGNPOST_ITEM, MapEcruteakCitySignpostItem7
 
-	; people-events
+.PersonEvents:
 	db 7
-	person_event SPRITE_GRAMPS, 19, 22, $2, $11, 255, 255, $0, 0, GrampsScript_0x1a4009, $ffff
-	person_event SPRITE_GRAMPS, 25, 24, $3, $0, 255, 255, $0, 0, GrampsScript_0x1a400c, $ffff
-	person_event SPRITE_LASS, 33, 25, $5, $2, 255, 255, $90, 0, LassScript_0x1a4012, $ffff
-	person_event SPRITE_LASS, 13, 7, $7, $0, 255, 255, $0, 0, LassScript_0x1a4015, $ffff
-	person_event SPRITE_FISHER, 26, 13, $5, $1, 255, 255, $a0, 0, FisherScript_0x1a4029, $ffff
-	person_event SPRITE_YOUNGSTER, 18, 14, $2, $11, 255, 255, $80, 0, YoungsterScript_0x1a403d, $ffff
-	person_event SPRITE_GRAMPS, 11, 7, $2, $11, 255, 255, $a0, 0, GrampsScript_0x1a400f, $07a9
-; 0x1a46d0
-
+	person_event SPRITE_GRAMPS, 19, 22, OW_DOWN | $2, $11, -1, -1, $0, 0, GrampsScript_0x1a4009, -1
+	person_event SPRITE_GRAMPS, 25, 24, OW_DOWN | $3, $0, -1, -1, $0, 0, GrampsScript_0x1a400c, -1
+	person_event SPRITE_LASS, 33, 25, OW_UP | $1, $2, -1, -1, (PAL_OW_BLUE << 4) | $80, 0, LassScript_0x1a4012, -1
+	person_event SPRITE_LASS, 13, 7, OW_UP | $3, $0, -1, -1, $0, 0, LassScript_0x1a4015, -1
+	person_event SPRITE_FISHER, 26, 13, OW_UP | $1, $1, -1, -1, (PAL_OW_GREEN << 4) | $80, 0, FisherScript_0x1a4029, -1
+	person_event SPRITE_YOUNGSTER, 18, 14, OW_DOWN | $2, $11, -1, -1, (PAL_OW_RED << 4) | $80, 0, YoungsterScript_0x1a403d, -1
+	person_event SPRITE_GRAMPS, 11, 7, OW_DOWN | $2, $11, -1, -1, (PAL_OW_GREEN << 4) | $80, 0, GrampsScript_0x1a400f, EVENT_ECRUTEAK_CITY_GRAMPS

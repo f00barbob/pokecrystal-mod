@@ -41,6 +41,8 @@ hProduct           EQU $ffb3
 
 hMathBuffer        EQU $ffb8
 
+hMoneyTemp         EQU $ffc3
+
 hLCDStatCustom     EQU $ffc6
 
 hSerialSend        EQU $ffcd
@@ -71,4 +73,3 @@ hCGBPalUpdate      EQU $ffe5
 hCGB               EQU $ffe6
 hSGB               EQU $ffe7
 hDMATransfer       EQU $ffe8
-

@@ -1,57 +1,46 @@
-CinnabarIsland_MapScriptHeader: ; 0x1ac9a7
-	; trigger count
+CinnabarIsland_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 1
 
 	; callbacks
+	dbw 5, .FlyPoint
 
-	dbw 5, UnknownScript_0x1ac9ac
-; 0x1ac9ac
-
-UnknownScript_0x1ac9ac: ; 0x1ac9ac
-	setflag $003f
+.FlyPoint
+	setflag ENGINE_FLYPOINT_CINNABAR
 	return
-; 0x1ac9b0
 
-BlueScript_0x1ac9b0: ; 0x1ac9b0
+CinnabarIslandBlue:
 	faceplayer
 	loadfont
-	writetext UnknownText_0x1ac9d2
+	writetext CinnabarIslandBlueText
 	closetext
 	loadmovesprites
 	playsound SFX_WARP_TO
-	applymovement $2, MovementData_0x1ac9d0
+	applymovement $2, CinnabarIslandBlueTeleport
 	disappear $2
-	clearevent $0776
+	clearevent EVENT_VIRIDIAN_GYM_BLUE
 	end
-; 0x1ac9c4
 
-MapCinnabarIslandSignpost1Script: ; 0x1ac9c4
-	jumptext UnknownText_0x1acc73
-; 0x1ac9c7
+CinnabarIslandGymSign:
+	jumptext CinnabarIslandGymSignText
 
-MapCinnabarIslandSignpost2Script: ; 0x1ac9c7
-	jumptext UnknownText_0x1accc2
-; 0x1ac9ca
+CinnabarIslandSign:
+	jumptext CinnabarIslandSignText
 
-MapCinnabarIslandSignpost0Script: ; 0x1ac9ca
-	jumpstd $0010
-; 0x1ac9cd
+CinnabarIslandPokeCenterSign:
+	jumpstd pokecentersign
 
-MapCinnabarIslandSignpostItem3: ; 0x1ac9cd
-	dw $00fe
-	db RARE_CANDY
-	
-; 0x1ac9d0
+MapCinnabarIslandSignpostItem3:
+	dwb EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY, RARE_CANDY
 
-MovementData_0x1ac9d0: ; 0x1ac9d0
+CinnabarIslandBlueTeleport:
 	teleport_from
 	step_end
-; 0x1ac9d2
 
-UnknownText_0x1ac9d2: ; 0x1ac9d2
+CinnabarIslandBlueText:
 	text "Who are you?"
 
 	para "Well, it's plain"
@@ -118,9 +107,8 @@ UnknownText_0x1ac9d2: ; 0x1ac9d2
 	para "I'll take you on"
 	line "then."
 	done
-; 0x1acc73
 
-UnknownText_0x1acc73: ; 0x1acc73
+CinnabarIslandGymSignText:
 	text "There's a notice"
 	line "here…"
 
@@ -130,36 +118,32 @@ UnknownText_0x1acc73: ; 0x1acc73
 
 	para "BLAINE"
 	done
-; 0x1accc2
 
-UnknownText_0x1accc2: ; 0x1accc2
+CinnabarIslandSignText:
 	text "CINNABAR ISLAND"
 
 	para "The Fiery Town of"
 	line "Burning Desire"
 	done
-; 0x1accf4
 
-CinnabarIsland_MapEventHeader: ; 0x1accf4
+CinnabarIsland_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 1
 	warp_def $b, $b, 1, GROUP_CINNABAR_POKECENTER_1F, MAP_CINNABAR_POKECENTER_1F
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 4
-	signpost 11, 12, $0, MapCinnabarIslandSignpost0Script
-	signpost 11, 9, $0, MapCinnabarIslandSignpost1Script
-	signpost 7, 7, $0, MapCinnabarIslandSignpost2Script
-	signpost 1, 9, $7, MapCinnabarIslandSignpostItem3
+	signpost 11, 12, SIGNPOST_READ, CinnabarIslandPokeCenterSign
+	signpost 11, 9, SIGNPOST_READ, CinnabarIslandGymSign
+	signpost 7, 7, SIGNPOST_READ, CinnabarIslandSign
+	signpost 1, 9, SIGNPOST_ITEM, MapCinnabarIslandSignpostItem3
 
-	; people-events
+.PersonEvents:
 	db 1
-	person_event SPRITE_BLUE, 10, 13, $3, $0, 255, 255, $0, 0, BlueScript_0x1ac9b0, $0775
-; 0x1acd20
-
+	person_event SPRITE_BLUE, 10, 13, OW_DOWN | $3, $0, -1, -1, $0, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR

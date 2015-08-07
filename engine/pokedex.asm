@@ -899,10 +899,9 @@ asm_4065d: ; 4065d (10:465d)
 	ld e, a
 	ld d, 0
 	ld hl, Unknown_40a3e + 2
+rept 4
 	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
+endr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -1205,9 +1204,10 @@ Unknown_408b2: ; 408b2
 ; 408bd
 
 String_408bd: ; 408bd
-	db "NEW #DEX MODE", $4e
-	db "OLD #DEX MODE", $4e
-	db "A to Z MODE@"
+	db   "NEW #DEX MODE"
+	next "OLD #DEX MODE"
+	next "A to Z MODE"
+	db "@"
 ; 408e5
 
 String_408e5: ; 408e5
@@ -1338,10 +1338,9 @@ Function409f1: ; 409f1 (10:49f1)
 	jr z, .asm_40a39
 	push af
 	ld hl, Unknown_40a3e
+rept 4
 	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
+endr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -1753,23 +1752,23 @@ Unknown_40e7d: ; 40e7d
 ; 40e85
 
 String_40e85: ; 40e85
-	db $e1, $e2, " are listed by", $4e
-	db "evolution type.@"
+	db   $e1, $e2, " are listed by"
+	next "evolution type.@"
 ; 40ea6
 
 String_40ea6: ; 40ea6
-	db $e1, $e2, " are listed by", $4e
-	db "official type.@"
+	db   $e1, $e2, " are listed by"
+	next "official type.@"
 ; 40ec6
 
 String_40ec6: ; 40ec6
-	db $e1, $e2, " are listed", $4e
-	db "alphabetically.@"
+	db   $e1, $e2, " are listed"
+	next "alphabetically.@"
 ; 40ee4
 
 String_40ee4: ; 40ee4
-	db "UNOWN are listed", $4e
-	db "in catching order.@"
+	db   "UNOWN are listed"
+	next "in catching order.@"
 ; 40f08
 
 Function40f08: ; 40f08 (10:4f08)
@@ -1882,15 +1881,9 @@ Function40fcd: ; 40fcd (10:4fcd)
 	ld e, a
 	ld d, 0
 	ld hl, Strings_40fe4
+rept 9
 	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
-	add hl, de
+endr
 	ld e, l
 	ld d, h
 	pop hl
@@ -2031,8 +2024,8 @@ Function41107: ; 41107
 ; 41126
 
 String_41126: ; 41126
-	db "The specified type", $4e
-	db "was not found.@"
+	db   "The specified type"
+	next "was not found.@"
 ; 41148
 
 Function41148: ; 41148 (10:5148)
@@ -2405,8 +2398,9 @@ Function41427: ; 41427
 Function41432: ; 41432
 	ld e, a
 	ld d, 0
+rept 2
 	add hl, de
-	add hl, de
+endr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -2586,4 +2580,3 @@ Function41a58: ; 41a58 (10:5a58)
 	pop af
 	ld [UnownLetter], a
 	ret
-

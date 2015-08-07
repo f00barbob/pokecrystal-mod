@@ -1,43 +1,38 @@
-MoveDeletersHouse_MapScriptHeader: ; 0x195cb2
-	; trigger count
+MoveDeletersHouse_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 0
-; 0x195cb4
 
-SuperNerdScript_0x195cb4: ; 0x195cb4
+MoveDeleter:
 	faceplayer
 	loadfont
-	special Function2c547
+	special MoveDeletion
 	closetext
 	loadmovesprites
 	end
-; 0x195cbc
 
-MapMoveDeletersHouseSignpost1Script: ; 0x195cbc
-	jumpstd $0001
-; 0x195cbf
+MoveDeletersHouseBookshelf:
+	jumpstd difficultbookshelf
 
-MoveDeletersHouse_MapEventHeader: ; 0x195cbf
+MoveDeletersHouse_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 2
 	warp_def $7, $2, 6, GROUP_BLACKTHORN_CITY, MAP_BLACKTHORN_CITY
 	warp_def $7, $3, 6, GROUP_BLACKTHORN_CITY, MAP_BLACKTHORN_CITY
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 2
-	signpost 1, 0, $0, MapMoveDeletersHouseSignpost1Script
-	signpost 1, 1, $0, MapMoveDeletersHouseSignpost1Script
+	signpost 1, 0, SIGNPOST_READ, MoveDeletersHouseBookshelf
+	signpost 1, 1, SIGNPOST_READ, MoveDeletersHouseBookshelf
 
-	; people-events
+.PersonEvents:
 	db 1
-	person_event SPRITE_SUPER_NERD, 7, 6, $6, $0, 255, 255, $0, 0, SuperNerdScript_0x195cb4, $ffff
-; 0x195ce6
-
+	person_event SPRITE_SUPER_NERD, 7, 6, OW_UP | $2, $0, -1, -1, $0, 0, MoveDeleter, -1

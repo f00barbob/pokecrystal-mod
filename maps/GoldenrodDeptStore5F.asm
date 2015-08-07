@@ -1,168 +1,146 @@
-GoldenrodDeptStore5F_MapScriptHeader: ; 0x5608b
-	; trigger count
+GoldenrodDeptStore5F_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 1
 
 	; callbacks
 
-	dbw 2, UnknownScript_0x56090
-; 0x56090
+	dbw 2, .CheckIfSunday
 
-UnknownScript_0x56090: ; 0x56090
-	checkcode $b
-	if_equal SUNDAY, UnknownScript_0x56099
+.CheckIfSunday:
+	checkcode VAR_WEEKDAY
+	if_equal SUNDAY, .yes
 	disappear $7
 	return
-; 0x56099
 
-UnknownScript_0x56099: ; 0x56099
+.yes:
 	appear $7
 	return
-; 0x5609c
 
-ClerkScript_0x5609c: ; 0x5609c
+ClerkScript_0x5609c:
 	faceplayer
 	loadfont
 	checkevent EVENT_GOT_TM02_HEADBUTT
-	iftrue UnknownScript_0x560ad
+	iftrue .headbutt
 	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue UnknownScript_0x560c2
-	jump UnknownScript_0x560b6
-; 0x560ad
+	iftrue .onlyrocksmash
+	jump .neither
 
-UnknownScript_0x560ad: ; 0x560ad
+.headbutt:
 	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue UnknownScript_0x560c8
-	jump UnknownScript_0x560bc
-; 0x560b6
+	iftrue .both
+	jump .onlyheadbutt
 
-UnknownScript_0x560b6: ; 0x560b6
+.neither:
 	pokemart $0, $0009
 	loadmovesprites
 	end
-; 0x560bc
 
-UnknownScript_0x560bc: ; 0x560bc
+.onlyheadbutt:
 	pokemart $0, $000a
 	loadmovesprites
 	end
-; 0x560c2
 
-UnknownScript_0x560c2: ; 0x560c2
+.onlyrocksmash:
 	pokemart $0, $000b
 	loadmovesprites
 	end
-; 0x560c8
 
-UnknownScript_0x560c8: ; 0x560c8
+.both:
 	pokemart $0, $000c
 	loadmovesprites
 	end
-; 0x560ce
 
-ReceptionistScript_0x560ce: ; 0x560ce
+ReceptionistScript_0x560ce:
 	faceplayer
 	loadfont
-	checkcode $b
-	if_not_equal SUNDAY, UnknownScript_0x56112
-	checkflag $005b
-	iftrue UnknownScript_0x56112
-	special Function718d
+	checkcode VAR_WEEKDAY
+	if_not_equal SUNDAY, .EventIsOver
+	checkflag ENGINE_GOLDENROD_MALL_5F_HAPPINESS_EVENT
+	iftrue .EventIsOver
+	special GetFirstPokemonHappiness
 	writetext UnknownText_0x56143
 	keeptextopen
-	if_greater_than $95, UnknownScript_0x560ee
-	if_greater_than $31, UnknownScript_0x560fd
-	jump UnknownScript_0x56103
-; 0x560ee
+	if_greater_than $95, .VeryHappy
+	if_greater_than $31, .SomewhatHappy
+	jump .NotVeryHappy
 
-UnknownScript_0x560ee: ; 0x560ee
+.VeryHappy:
 	writetext UnknownText_0x5615a
 	keeptextopen
-	verbosegiveitem TM_27, 1
-	iffalse UnknownScript_0x56116
-	setflag $005b
+	verbosegiveitem TM_RETURN, 1
+	iffalse .Done
+	setflag ENGINE_GOLDENROD_MALL_5F_HAPPINESS_EVENT
 	loadmovesprites
 	end
-; 0x560fd
 
-UnknownScript_0x560fd: ; 0x560fd
+.SomewhatHappy:
 	writetext UnknownText_0x561a6
 	closetext
 	loadmovesprites
 	end
-; 0x56103
 
-UnknownScript_0x56103: ; 0x56103
+.NotVeryHappy:
 	writetext UnknownText_0x561d8
 	keeptextopen
-	verbosegiveitem TM_21, 1
-	iffalse UnknownScript_0x56116
-	setflag $005b
+	verbosegiveitem TM_FRUSTRATION, 1
+	iffalse .Done
+	setflag ENGINE_GOLDENROD_MALL_5F_HAPPINESS_EVENT
 	loadmovesprites
 	end
-; 0x56112
 
-UnknownScript_0x56112: ; 0x56112
+.EventIsOver:
 	writetext UnknownText_0x56202
 	closetext
-UnknownScript_0x56116: ; 0x56116
+.Done:
 	loadmovesprites
 	end
-; 0x56118
 
-TwinScript_0x56118: ; 0x56118
+TwinScript_0x56118:
 	faceplayer
 	loadfont
 	special SpecialGameboyCheck
-	if_not_equal $2, UnknownScript_0x5612a
+	if_not_equal $2, .NotGBC ; This is a dummy check from Gold and Silver.  In normal gameplay, this would not be checked.
 	writetext UnknownText_0x56241
 	closetext
 	loadmovesprites
-	special Function1050b9
+	special Special_UnlockMysteryGift
 	end
-; 0x5612a
 
-UnknownScript_0x5612a: ; 0x5612a
+.NotGBC:
 	writetext UnknownText_0x56279
 	closetext
 	loadmovesprites
 	end
-; 0x56130
 
-LassScript_0x56130: ; 0x56130
+LassScript_0x56130:
 	jumptextfaceplayer UnknownText_0x562ad
-; 0x56133
 
-CooltrainerMScript_0x56133: ; 0x56133
+CooltrainerMScript_0x56133:
 	faceplayer
 	loadfont
 	trade $0
 	closetext
 	loadmovesprites
 	end
-; 0x5613a
 
-PokefanMScript_0x5613a: ; 0x5613a
+PokefanMScript_0x5613a:
 	jumptextfaceplayer UnknownText_0x562f3
-; 0x5613d
 
-MapGoldenrodDeptStore5FSignpost0Script: ; 0x5613d
-	jumptext UnknownText_0x56364
-; 0x56140
+GoldenrodDeptStore5FDirectory:
+	jumptext GoldenrodDeptStore5FDirectoryText
 
-MapGoldenrodDeptStore5FSignpost1Script: ; 0x56140
-	jumpstd $0014
-; 0x56143
+GoldenrodDeptStore5FElevatorButton:
+	jumpstd elevatorbutton
 
-UnknownText_0x56143: ; 0x56143
+UnknownText_0x56143:
 	text "Hello. Oh, your"
 	line "#MON…"
 	done
-; 0x5615a
 
-UnknownText_0x5615a: ; 0x5615a
+UnknownText_0x5615a:
 	text "It's very attached"
 	line "to you."
 
@@ -170,49 +148,43 @@ UnknownText_0x5615a: ; 0x5615a
 	line "be perfect for a"
 	cont "pair like you."
 	done
-; 0x561a6
 
-UnknownText_0x561a6: ; 0x561a6
+UnknownText_0x561a6:
 	text "It's adorable!"
 
 	para "You should teach"
 	line "it good TM moves."
 	done
-; 0x561d8
 
-UnknownText_0x561d8: ; 0x561d8
+UnknownText_0x561d8:
 	text "It looks evil. How"
 	line "about this TM for"
 	cont "it?"
 	done
-; 0x56202
 
-UnknownText_0x56202: ; 0x56202
+UnknownText_0x56202:
 	text "There are sure to"
 	line "be TMs that are"
 
 	para "just perfect for"
 	line "your #MON."
 	done
-; 0x56241
 
-UnknownText_0x56241: ; 0x56241
+UnknownText_0x56241:
 	text "MYSTERY GIFT."
 
 	para "With just a"
 	line "little beep, you"
 	cont "get a gift."
 	done
-; 0x56279
 
-UnknownText_0x56279: ; 0x56279
+UnknownText_0x56279:
 	text "The MYSTERY GIFT"
 	line "option requires a"
 	cont "Game Boy Color."
 	done
-; 0x562ad
 
-UnknownText_0x562ad: ; 0x562ad
+UnknownText_0x562ad:
 	text "On Sundays, a lady"
 	line "comes to check out"
 	cont "#MON."
@@ -220,9 +192,8 @@ UnknownText_0x562ad: ; 0x562ad
 	para "She even gives"
 	line "away TMs!"
 	done
-; 0x562f3
 
-UnknownText_0x562f3: ; 0x562f3
+UnknownText_0x562f3:
 	text "You can't rename a"
 	line "#MON you get in"
 	cont "a trade."
@@ -233,41 +204,37 @@ UnknownText_0x562f3: ; 0x562f3
 	para "original trainer's"
 	line "feelings for it."
 	done
-; 0x56364
 
-UnknownText_0x56364: ; 0x56364
+GoldenrodDeptStore5FDirectoryText:
 	text "Customize Your"
 	line "#MON"
 
 	para "5F TM CORNER"
 	done
-; 0x56386
 
-GoldenrodDeptStore5F_MapEventHeader: ; 0x56386
+GoldenrodDeptStore5F_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 3
 	warp_def $0, $c, 1, GROUP_GOLDENROD_DEPT_STORE_4F, MAP_GOLDENROD_DEPT_STORE_4F
 	warp_def $0, $f, 1, GROUP_GOLDENROD_DEPT_STORE_6F, MAP_GOLDENROD_DEPT_STORE_6F
 	warp_def $0, $2, 1, GROUP_GOLDENROD_DEPT_STORE_ELEVATOR, MAP_GOLDENROD_DEPT_STORE_ELEVATOR
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 2
-	signpost 0, 14, $0, MapGoldenrodDeptStore5FSignpost0Script
-	signpost 0, 3, $0, MapGoldenrodDeptStore5FSignpost1Script
+	signpost 0, 14, SIGNPOST_READ, GoldenrodDeptStore5FDirectory
+	signpost 0, 3, SIGNPOST_READ, GoldenrodDeptStore5FElevatorButton
 
-	; people-events
+.PersonEvents:
 	db 6
-	person_event SPRITE_CLERK, 9, 12, $7, $0, 255, 255, $0, 0, ClerkScript_0x5609c, $ffff
-	person_event SPRITE_LASS, 10, 7, $2, $11, 255, 255, $0, 0, LassScript_0x56130, $ffff
-	person_event SPRITE_COOLTRAINER_M, 7, 10, $3, $0, 255, 255, $0, 0, CooltrainerMScript_0x56133, $ffff
-	person_event SPRITE_POKEFAN_M, 9, 17, $2, $22, 255, 255, $0, 0, PokefanMScript_0x5613a, $ffff
-	person_event SPRITE_TWIN, 5, 13, $6, $0, 255, 255, $a0, 0, TwinScript_0x56118, $ffff
-	person_event SPRITE_RECEPTIONIST, 9, 11, $7, $0, 255, 255, $80, 0, ReceptionistScript_0x560ce, $0763
-; 0x563f3
-
+	person_event SPRITE_CLERK, 9, 12, OW_UP | $3, $0, -1, -1, $0, 0, ClerkScript_0x5609c, -1
+	person_event SPRITE_LASS, 10, 7, OW_DOWN | $2, $11, -1, -1, $0, 0, LassScript_0x56130, -1
+	person_event SPRITE_COOLTRAINER_M, 7, 10, OW_DOWN | $3, $0, -1, -1, $0, 0, CooltrainerMScript_0x56133, -1
+	person_event SPRITE_POKEFAN_M, 9, 17, OW_DOWN | $2, $22, -1, -1, $0, 0, PokefanMScript_0x5613a, -1
+	person_event SPRITE_TWIN, 5, 13, OW_UP | $2, $0, -1, -1, (PAL_OW_GREEN << 4) | $80, 0, TwinScript_0x56118, -1
+	person_event SPRITE_RECEPTIONIST, 9, 11, OW_UP | $3, $0, -1, -1, (PAL_OW_RED << 4) | $80, 0, ReceptionistScript_0x560ce, EVENT_GOLDENROD_DEPT_STORE_5F_HAPPINESS_EVENT_LADY

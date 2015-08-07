@@ -302,7 +302,7 @@ Functiond90:: ; d90
 ; d91
 
 
-Functiond91:: ; d91
+Special_ReloadSpritesNoPalettes:: ; d91
 	ld a, [hCGB]
 	and a
 	ret z
@@ -344,4 +344,3 @@ Functiondbd:: ; dbd
 	rst Bankswitch
 	ret
 ; dc9
-

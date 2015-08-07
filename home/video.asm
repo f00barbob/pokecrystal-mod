@@ -77,8 +77,9 @@ endr
 
 ; We've done 2 16x8 blocks
 	ld a, [$ffdc]
+rept 2
 	dec a
-	dec a
+endr
 	ld [$ffdc], a
 
 	jr nz, .next
@@ -484,4 +485,3 @@ AnimateTileset:: ; 17d3
 	rst Bankswitch
 	ret
 ; 17ff
-

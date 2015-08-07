@@ -36,7 +36,7 @@ Function4a3:: ; 4a3
 	jr FadeOut
 ; 4b6
 
-Function4b6:: ; 4b6
+FadeToWhite:: ; 4b6
 	ld a, [hCGB]
 	and a
 	jr z, .asm_4c2
@@ -131,4 +131,3 @@ IncGradGBPalTable_13:: db %10010000, %10000000, %10010000
 IncGradGBPalTable_14:: db %01000000, %01000000, %01000000
 IncGradGBPalTable_15:: db %00000000, %00000000, %00000000
 ; 547
-

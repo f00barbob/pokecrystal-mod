@@ -1,58 +1,47 @@
-SilverCaveOutside_MapScriptHeader: ; 0x1b2042
-	; trigger count
+SilverCaveOutside_MapScriptHeader:
+.MapTriggers:
 	db 0
 
-	; callback count
+.MapCallbacks:
 	db 1
 
 	; callbacks
+	dbw 5, .FlyPoint
 
-	dbw 5, UnknownScript_0x1b2047
-; 0x1b2047
-
-UnknownScript_0x1b2047: ; 0x1b2047
-	setflag $004c
+.FlyPoint
+	setflag ENGINE_FLYPOINT_SILVER_CAVE
 	return
-; 0x1b204b
 
-MapSilverCaveOutsideSignpost0Script: ; 0x1b204b
-	jumpstd $0010
-; 0x1b204e
+MtSilverPokeCenterSign:
+	jumpstd pokecentersign
 
-MapSilverCaveOutsideSignpost1Script: ; 0x1b204e
-	jumptext UnknownText_0x1b2054
-; 0x1b2051
+MtSilverSign:
+	jumptext MtSilverSignText
 
-MapSilverCaveOutsideSignpostItem2: ; 0x1b2051
-	dw $00b8
-	db FULL_RESTORE
-	
-; 0x1b2054
+MapSilverCaveOutsideSignpostItem2:
+	dwb EVENT_SILVER_CAVE_OUTSIDE_HIDDEN_FULL_RESTORE, FULL_RESTORE
 
-UnknownText_0x1b2054: ; 0x1b2054
+MtSilverSignText:
 	text "MT.SILVER"
 	done
-; 0x1b205f
 
-SilverCaveOutside_MapEventHeader: ; 0x1b205f
+SilverCaveOutside_MapEventHeader:
 	; filler
 	db 0, 0
 
-	; warps
+.Warps:
 	db 2
 	warp_def $13, $17, 1, GROUP_SILVER_CAVE_POKECENTER_1F, MAP_SILVER_CAVE_POKECENTER_1F
 	warp_def $b, $12, 1, GROUP_SILVER_CAVE_ROOM_1, MAP_SILVER_CAVE_ROOM_1
 
-	; xy triggers
+.XYTriggers:
 	db 0
 
-	; signposts
+.Signposts:
 	db 3
-	signpost 19, 24, $0, MapSilverCaveOutsideSignpost0Script
-	signpost 13, 17, $0, MapSilverCaveOutsideSignpost1Script
-	signpost 25, 9, $7, MapSilverCaveOutsideSignpostItem2
+	signpost 19, 24, SIGNPOST_READ, MtSilverPokeCenterSign
+	signpost 13, 17, SIGNPOST_READ, MtSilverSign
+	signpost 25, 9, SIGNPOST_ITEM, MapSilverCaveOutsideSignpostItem2
 
-	; people-events
+.PersonEvents:
 	db 0
-; 0x1b207e
-
