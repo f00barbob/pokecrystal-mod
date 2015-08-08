@@ -308,13 +308,13 @@ BlackthornCity_MapEventHeader:
 	db 0, 0
 
 .Warps:
-	db 8
+	db 7
 	warp_def $b, $12, 1, GROUP_BLACKTHORN_GYM_1F, MAP_BLACKTHORN_GYM_1F
 	warp_def $15, $d, 1, GROUP_BLACKTHORN_DRAGON_SPEECH_HOUSE, MAP_BLACKTHORN_DRAGON_SPEECH_HOUSE
 	warp_def $17, $1d, 1, GROUP_BLACKTHORN_DODRIO_TRADE_HOUSE, MAP_BLACKTHORN_DODRIO_TRADE_HOUSE
 	warp_def $1d, $f, 2, GROUP_BLACKTHORN_MART, MAP_BLACKTHORN_MART
 	warp_def $1d, $15, 1, GROUP_BLACKTHORN_POKECENTER_1F, MAP_BLACKTHORN_POKECENTER_1F
-	warp_def $1f, $9, 1, GROUP_MOVE_DELETERS_HOUSE, MAP_MOVE_DELETERS_HOUSE
+;	warp_def $1f, $9, 1, GROUP_MOVE_DELETERS_HOUSE, MAP_MOVE_DELETERS_HOUSE
 	warp_def $9, $24, 2, GROUP_ICE_PATH_1F, MAP_ICE_PATH_1F
 	warp_def $1, $14, 1, GROUP_DRAGONS_DEN_1F, MAP_DRAGONS_DEN_1F
 
@@ -322,10 +322,10 @@ BlackthornCity_MapEventHeader:
 	db 0
 
 .Signposts:
-	db 7
+	db 6
 	signpost 24, 34, SIGNPOST_READ, BlackthornCitySign
 	signpost 13, 17, SIGNPOST_READ, BlackthornGymSign
-	signpost 31, 7, SIGNPOST_READ, MoveDeletersHouseSign
+;	signpost 31, 7, SIGNPOST_READ, MoveDeletersHouseSign
 	signpost 3, 21, SIGNPOST_READ, DragonDensSign
 	signpost 25, 5, SIGNPOST_READ, BlackthornCityTrainerTips
 	signpost 29, 16, SIGNPOST_READ, BlackthornCityMartSign

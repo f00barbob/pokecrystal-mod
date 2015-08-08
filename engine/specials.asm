@@ -545,7 +545,7 @@ SpecialSnorlaxAwake: ; 0xc43d
 ; check background music
 	ld a, [wMapMusic]
 	cp MUSIC_POKE_FLUTE_CHANNEL
-	jr nz, .nope
+	;jr nz, .nope
 
 	ld a, [XCoord]
 	ld b, a
