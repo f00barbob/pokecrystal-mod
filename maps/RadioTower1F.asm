@@ -110,33 +110,35 @@ CooltrainerFScript_0x5cdd5:
 	loadfont
 	checkflag ENGINE_RADIO_CARD
 	iftrue UnknownScript_0x5ce2d
-	writetext UnknownText_0x5d12d
+	writetext UnknownText_0x5d12d ; do you want to play?
 	yesorno
 	iffalse UnknownScript_0x5ce4b
-	writetext UnknownText_0x5d1f2
+	writetext UnknownText_0x5d1f2 ; question 1
 	yesorno
 	iffalse UnknownScript_0x5ce42
 	playsound SFX_ELEVATOR_END
 	waitbutton
-	writetext UnknownText_0x5d231
+	writetext UnknownText_0x5d231 ; question 2
 	yesorno
 	iffalse UnknownScript_0x5ce42
 	playsound SFX_ELEVATOR_END
-	waitbutton
-	writetext UnknownText_0x5d282
-	yesorno
-	iftrue UnknownScript_0x5ce42
-	playsound SFX_ELEVATOR_END
-	waitbutton
-	writetext UnknownText_0x5d2bc
-	yesorno
-	iffalse UnknownScript_0x5ce42
-	playsound SFX_ELEVATOR_END
-	waitbutton
-	writetext UnknownText_0x5d30e
-	yesorno
-	iftrue UnknownScript_0x5ce42
-	playsound SFX_ELEVATOR_END
+	
+;	waitbutton
+;	writetext UnknownText_0x5d282 ; question 3
+;	yesorno
+;	iftrue UnknownScript_0x5ce42
+;	playsound SFX_ELEVATOR_END
+;	waitbutton
+;	writetext UnknownText_0x5d2bc ; question 4
+;	yesorno
+;	iffalse UnknownScript_0x5ce42
+;	playsound SFX_ELEVATOR_END
+;	waitbutton
+;	writetext UnknownText_0x5d30e ; question 5
+;	yesorno
+;	iftrue UnknownScript_0x5ce42
+;	playsound SFX_ELEVATOR_END
+	
 	waitbutton
 	writetext UnknownText_0x5d37b
 	keeptextopen
