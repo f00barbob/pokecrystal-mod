@@ -7125,7 +7125,7 @@ _CheckTossableItem:: ; d427
 	ld a, ITEMATTR_PERMISSIONS
 	call GetItemAttr
 	bit 7, a
-	jr nz, Functiond47f
+	jr Functiond47f ; nothing is tossable
 	and a
 	ret
 ; d432
@@ -13562,15 +13562,15 @@ PokemonActionSubmenu: ; 12a88
 	ld a, 0
 	ret
 
-.Actions
+.Actions ; Fly, Dig, Teleport are remapped to Flash
 	dbw  1, Function12e1b ; Cut
-	dbw  2, Function12e30 ; Fly
+	dbw  2, Function12e55 ; Fly
 	dbw  3, Function12ebd ; Surf
 	dbw  4, Function12e6a ; Strength
 	dbw  6, Function12e55 ; Flash
 	dbw  7, Function12e7f ; Whirlpool
-	dbw  8, Function12ed1 ; Dig
-	dbw  9, Function12ea9 ; Teleport
+	dbw  8, Function12e55 ; Dig
+	dbw  9, Function12e55 ; Teleport
 	dbw 10, Function12ee6 ; Softboiled
 	dbw 13, Function12ee6 ; MilkDrink
 	dbw 11, Function12f26 ; Headbutt
@@ -42128,9 +42128,9 @@ NewGameMenu: ; 0x49d6c
 	db $ff
 
 ContinueMenu: ; 0x49d70
-	db 3
+	db 2
 	db CONTINUE
-	db NEW_GAME
+;	db NEW_GAME ; no new game for you
 	db OPTION
 	db $ff
 
@@ -69016,7 +69016,7 @@ CheckCellNum:: ; 90019
 
 _CheckCellNum: ; 9001c
 	ld hl, wdc7c
-	ld b, $a
+	ld b, $7 ; reduce phonebook size
 .asm_90021
 	ld a, [hli]
 	cp c
@@ -69186,7 +69186,7 @@ Function900de: ; 900de (24:40de)
 	xor a
 	call ByteFill
 	ld de, wdc7c
-	ld a, $a
+	ld a, $7 ; i believe this was the other value
 .asm_900f7
 	ld [wd03f], a
 	ld a, [de]
@@ -81572,7 +81572,7 @@ endr
 BillsPCDepositJumptable: ; e24a1 (38:64a1)
 	dw BillsPCDepositFuncDeposit ; Deposit Pokemon
 	dw BillsPCDepositFuncStats ; Pokemon Stats
-	dw BillsPCDepositFuncRelease ; Release Pokemon
+	dw BillsPCDepositFuncCancel ; Don't Release Pokemon
 	dw BillsPCDepositFuncCancel ; Cancel
 
 
@@ -81837,7 +81837,7 @@ endr
 BillsPCWithdrawJumptable: ; e2699 (38:6699) #mark
 	dw BillsPCWithdrawFuncWithdraw ; Withdraw
 	dw BillsPCWithdrawFuncStats ; Stats
-	dw BillsPCWithdrawFuncRelease ; Release
+	dw BillsPCWithdrawFuncCancel ; Don't Release
 	dw BillsPCWithdrawFuncCancel ; Cancel
 
 
