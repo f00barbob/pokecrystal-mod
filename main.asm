@@ -13564,7 +13564,7 @@ PokemonActionSubmenu: ; 12a88
 
 .Actions ; Fly, Dig, Teleport are remapped to Flash
 	dbw  1, Function12e1b ; Cut
-	dbw  2, Function12e55 ; Fly
+	dbw  2, Function12e30 ; Function12e55 ; Fly
 	dbw  3, Function12ebd ; Surf
 	dbw  4, Function12e6a ; Strength
 	dbw  6, Function12e55 ; Flash
