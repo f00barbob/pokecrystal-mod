@@ -28,6 +28,9 @@ VermilionMachop:
 	loadfont
 	writetext UnknownText_0x1aaae2
 	closetext
+	clearevent EVENT_FOUGHT_SNORLAX
+	clearevent EVENT_VERMILION_CITY_SNORLAX
+	
 	loadmovesprites
 	end
 
@@ -145,9 +148,13 @@ UnknownText_0x1aaaca:
 	done
 
 UnknownText_0x1aaae2:
-	text "A MACHOP is growl-"
-	line "ing while stomping"
-	cont "the ground flat."
+	text "MACHOP is summon-"
+	line "ing snorlax to"
+	para "come and kick"
+	line "your ass."
+	para "MLG420 360 no-"
+	line "scope ur mom."
+	cont "ZOMG..."
 	done
 
 UnknownText_0x1aab1a:
