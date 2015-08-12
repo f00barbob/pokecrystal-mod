@@ -76465,109 +76465,109 @@ TreeMons: ; b82e8
 
 TreeMons1: ; b82fa
 	db 50, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 15, NIDORAN_M,    10
+	db 15, JIGGLYPUFF,    10
+	db 10, HOUNDOUR,      10
+	db  5, ODDISH,      10
+	db  5, FARFETCH_D,      10
 	db -1
 
-	db 50, SPEAROW,    10
-	db 15, HERACROSS,  10
-	db 15, HERACROSS,  10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 50, SWINUB,    10
+	db 15, MACHAMP,  10
+	db 15, BLISSEY,  10
+	db 10, CHIKORITA,      10
+	db  5, DELIBIRD,      10
+	db  5, MAGBY,      10
 	db -1
 
 TreeMons2: ; b8320
-	db 50, SPEAROW,    10
-	db 15, EKANS,      10
-	db 15, SPEAROW,    10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 50, EKANS,    10
+	db 15, SPEAROW,      10
+	db 15, SLOWPOKE,    10
+	db 10, ARIADOS,      10
+	db  5, FARFETCH_D,      10
+	db  5, UNOWN,      10
 	db -1
 
-	db 50, SPEAROW,    10
-	db 15, HERACROSS,  10
-	db 15, HERACROSS,  10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 50, HOPPIP,    10
+	db 15, SNORLAX,  10
+	db 15, FLAREON,  10
+	db 10, KRABBY,      10
+	db  5, ELEKID,      10
+	db  5, NATU,      10
 	db -1
 
 TreeMons3: ; b8346
-	db 50, HOOTHOOT,   10
-	db 15, SPINARAK,   10
-	db 15, LEDYBA,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, SPINARAK,   10
+	db 15, SMEARGLE,   10
+	db 15, PHANPY,     10
+	db 10, MACHOP,  10
+	db  5, MEOWTH,  10
+	db  5, SHELLDER,  10
 	db -1
 
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, PIDGEY,   10
+	db 15, VOLTORB,     10
+	db 15, KRABBY,     10
+	db 10, ONIX,  10
+	db  5, BELLSPROUT,  10
+	db  5, GROWLITHE,  10
 	db -1
 
 TreeMons4: ; b836c
-	db 50, HOOTHOOT,   10
-	db 15, EKANS,      10
-	db 15, HOOTHOOT,   10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, LEDYBA,   10
+	db 15, GRIMER,      10
+	db 15, PIDGEY,   10
+	db 10, BUTTERFREE,  10
+	db  5, ELEKID,  10
+	db  5, GASTLY,  10
 	db -1
 
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 50, HOPPIP,   10
+	db 15, JIGGLYPUFF,     10
+	db 15, VOLTORB,     10
 	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db  5, SKIPLOOM,  10
+	db  5, NATU,  10
 	db -1
 
 TreeMons5: ; b8392
-	db 50, HOOTHOOT,   10
-	db 15, VENONAT,    10
-	db 15, HOOTHOOT,   10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, MARILL,   10
+	db 15, GRIMER,    10
+	db 15, MEOWTH,   10
+	db 10, BULBASAUR,  10
+	db  5, TENTACOOL,  10
+	db  5, ELEKID,  10
 	db -1
 
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, MARILL,   10
+	db 15, TEDDIURSA,     10
+	db 15, ZUBAT,     10
+	db 10, SKIPLOOM,  10
+	db  5, EEVEE,  10
+	db  5, SMOOCHUM,  10
 	db -1
 
 TreeMons6: ; b83b8
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, NOCTOWL,    10
-	db  5, BUTTERFREE, 10
-	db  5, BEEDRILL,   10
+	db 50, VENONAT,   10
+	db 15, TEDDIURSA,     10
+	db 15, SMOOCHUM,     10
+	db 10, SKARMORY,    10
+	db  5, CORSOLA, 10
+	db  5, CHIKORITA,   10
 	db -1
 
-	db 50, HOOTHOOT,   10
-	db 15, CATERPIE,   10
-	db 15, WEEDLE,     10
-	db 10, HOOTHOOT,   10
-	db  5, METAPOD,    10
-	db  5, KAKUNA,     10
+	db 50, ODDISH,   10
+	db 15, WEEDLE,   10
+	db 15, MAGIKARP,     10
+	db 10, SWINUB,   10
+	db  5, MAGIKARP,    10
+	db  5, WOOPER,     10
 	db -1
 
 RockMons: ; b83de
-	db 90, KRABBY,     15
-	db 10, SHUCKLE,    15
+	db 90, NIDORINA,     15
+	db 10, SLOWKING,    15
 	db -1
 ; b83e5
 

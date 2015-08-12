@@ -232,263 +232,263 @@ FishGroup13Header: ; 924dc
 FishGroup1:
 FishGroup1_Old: ; 924e3
 	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, KRABBY,     10
+	db $d9, WEEDLE,   10
+	db $ff, PHANPY,     10
 FishGroup1_Good: ; 924ec
-	db $59, MAGIKARP,   20
-	db $b2, KRABBY,     20
-	db $e6, KRABBY,     20
+	db $59, IGGLYBUFF,   20
+	db $b2, SHELLDER,     20
+	db $e6, RHYHORN,     20
 	db $ff, $0,         0
 FishGroup1_Super: ; 924f8
 	db $66, KRABBY,     40
 	db $b2, $0,         1
-	db $e6, KRABBY,     40
-	db $ff, KINGLER,    40
+	db $e6, REMORAID,     40
+	db $ff, KANGASKHAN,    40
 
 FishGroup2:
 FishGroup2_Old: ; 92504
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, TENTACOOL,  10
+	db $b3, WOOPER,   10
+	db $d9, SENTRET,   10
+	db $ff, GRIMER,  10
 FishGroup2_Good: ; 9250d
 	db $59, MAGIKARP,   20
-	db $b2, TENTACOOL,  20
-	db $e6, CHINCHOU,   20
+	db $b2, SEEL,  20
+	db $e6, SHELLDER,   20
 	db $ff, $0,         2
 FishGroup2_Super: ; 92519
-	db $66, CHINCHOU,   40
+	db $66, CHARMANDER,   40
 	db $b2, $0,         3
-	db $e6, TENTACRUEL, 40
-	db $ff, LANTURN,    40
+	db $e6, POLITOED, 40
+	db $ff, RAICHU,    40
 
 FishGroup3:
 FishGroup3_Old: ; 92525
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, GOLDEEN,    10
+	db $b3, TYROGUE,   10
+	db $d9, SUNKERN,   10
+	db $ff, CLEFAIRY,    10
 FishGroup3_Good: ; 9252e
-	db $59, MAGIKARP,   20
-	db $b2, GOLDEEN,    20
-	db $e6, GOLDEEN,    20
+	db $59, CLEFFA,   20
+	db $b2, DODUO,    20
+	db $e6, GROWLITHE,    20
 	db $ff, $0,         4
 FishGroup3_Super: ; 9253a
 	db $66, GOLDEEN,    40
 	db $b2, $0,         5
-	db $e6, MAGIKARP,   40
-	db $ff, SEAKING,    40
+	db $e6, METAPOD,   40
+	db $ff, SANDSLASH,    40
 
 FishGroup4:
 FishGroup4_Old: ; 92546
-	db $b3, MAGIKARP,   10
+	db $b3, METAPOD,   10
 	db $d9, MAGIKARP,   10
-	db $ff, POLIWAG,    10
+	db $ff, TOTODILE,    10
 FishGroup4_Good: ; 9254f
-	db $59, MAGIKARP,   20
+	db $59, KAKUNA,   20
 	db $b2, POLIWAG,    20
-	db $e6, POLIWAG,    20
+	db $e6, DROWZEE,    20
 	db $ff, $0,         6
 FishGroup4_Super: ; 9255b
-	db $66, POLIWAG,    40
+	db $66, NIDORAN_M,    40
 	db $b2, $0,         7
-	db $e6, MAGIKARP,   40
-	db $ff, POLIWAG,    40
+	db $e6, METAPOD,   40
+	db $ff, SLOWPOKE,    40
 
 FishGroup5:
 FishGroup5_Old: ; 92567
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, MAGIKARP,   10
+	db $b3, IGGLYBUFF,   10
+	db $d9, WEEDLE,   10
+	db $ff, WEEDLE,   10
 FishGroup5_Good: ; 92570
-	db $59, MAGIKARP,   20
-	db $b2, MAGIKARP,   20
-	db $e6, MAGIKARP,   20
+	db $59, METAPOD,   20
+	db $b2, WEEDLE,   20
+	db $e6, WOOPER,   20
 	db $ff, $0,         8
 FishGroup5_Super: ; 9257c
-	db $66, MAGIKARP,   40
+	db $66, METAPOD,   40
 	db $b2, $0,         9
-	db $e6, MAGIKARP,   40
-	db $ff, DRAGONAIR,  40
+	db $e6, SUNKERN,   40
+	db $ff, DUNSPARCE,  40
 
 FishGroup6:
 FishGroup6_Old: ; 92588
-	db $b3, MAGIKARP,   5
-	db $d9, MAGIKARP,   5
-	db $ff, QWILFISH,   5
+	db $b3, CLEFFA,   5
+	db $d9, CLEFFA,   5
+	db $ff, QUAGSIRE,   5
 FishGroup6_Good: ; 92591
-	db $59, MAGIKARP,   20
-	db $b2, QWILFISH,   20
-	db $e6, QWILFISH,   20
+	db $59, WOOPER,   20
+	db $b2, WIGGLYTUFF,   20
+	db $e6, PUPITAR,   20
 	db $ff, $0,         10
 FishGroup6_Super: ; 9259d
-	db $66, QWILFISH,   40
+	db $66, QUAGSIRE,   40
 	db $b2, $0,         11
-	db $e6, QWILFISH,   40
-	db $ff, QWILFISH,   40
+	db $e6, TANGELA,   40
+	db $ff, SEAKING,   40
 
 FishGroup7:
 FishGroup7_Old: ; 925a9
-	db $b3, MAGIKARP,   10
+	db $b3, PICHU,   10
 	db $d9, MAGIKARP,   10
-	db $ff, REMORAID,   10
+	db $ff, VULPIX,   10
 FishGroup7_Good: ; 925b2
-	db $59, MAGIKARP,   20
-	db $b2, REMORAID,   20
-	db $e6, REMORAID,   20
+	db $59, WEEDLE,   20
+	db $b2, SQUIRTLE,   20
+	db $e6, POLIWAG,   20
 	db $ff, $0,         12
 FishGroup7_Super: ; 925be
-	db $66, REMORAID,   40
+	db $66, HORSEA,   40
 	db $b2, $0,         13
-	db $e6, REMORAID,   40
-	db $ff, REMORAID,   40
+	db $e6, JIGGLYPUFF,   40
+	db $ff, FARFETCH_D,   40
 
 FishGroup8:
 FishGroup8_Old: ; 925ca
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, MAGIKARP,   10
+	db $b3, IGGLYBUFF,   10
+	db $d9, WEEDLE,   10
+	db $ff, TYROGUE,   10
 FishGroup8_Good: ; 925d3
-	db $59, MAGIKARP,   20
-	db $b2, MAGIKARP,   20
-	db $e6, MAGIKARP,   20
+	db $59, CLEFFA,   20
+	db $b2, KAKUNA,   20
+	db $e6, SENTRET,   20
 	db $ff, $0,         14
 FishGroup8_Super: ; 925df
-	db $66, MAGIKARP,   40
+	db $66, KAKUNA,   40
 	db $b2, $0,         15
-	db $e6, MAGIKARP,   40
-	db $ff, MAGIKARP,   40
+	db $e6, SUNKERN,   40
+	db $ff, WEEDLE,   40
 
 FishGroup9:
 FishGroup9_Old: ; 925eb
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, MAGIKARP,   10
+	db $b3, CATERPIE,   10
+	db $d9, WEEDLE,   10
+	db $ff, METAPOD,   10
 FishGroup9_Good: ; 925f4
-	db $59, MAGIKARP,   10
-	db $b2, MAGIKARP,   10
-	db $e6, MAGIKARP,   10
+	db $59, CATERPIE,   10
+	db $b2, CATERPIE,   10
+	db $e6, METAPOD,   10
 	db $ff, $0,         16
 FishGroup9_Super: ; 92600
-	db $66, MAGIKARP,   10
+	db $66, WOOPER,   10
 	db $b2, $0,         17
-	db $e6, MAGIKARP,   10
-	db $ff, DRAGONAIR,  10
+	db $e6, WEEDLE,   10
+	db $ff, DELIBIRD,  10
 
 FishGroup10:
 FishGroup10_Old: ; 9260c
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, KRABBY,     10
+	db $b3, SENTRET,   10
+	db $d9, METAPOD,   10
+	db $ff, UNOWN,     10
 FishGroup10_Good: ; 92615
-	db $59, MAGIKARP,   20
-	db $b2, KRABBY,     20
-	db $e6, KRABBY,     20
+	db $59, SENTRET,   20
+	db $b2, SMOOCHUM,     20
+	db $e6, PIKACHU,     20
 	db $ff, $0,         18
 FishGroup10_Super: ; 92621
-	db $66, KRABBY,     40
+	db $66, VULPIX,     40
 	db $b2, $0,         19
-	db $e6, KINGLER,    40
-	db $ff, SEADRA,     40
+	db $e6, BELLOSSOM,    40
+	db $ff, NIDOQUEEN,     40
 
 FishGroup11:
 FishGroup11_Old: ; 9262d
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, TENTACOOL,  10
+	db $b3, CLEFFA,   10
+	db $d9, KAKUNA,   10
+	db $ff, CHIKORITA,  10
 FishGroup11_Good: ; 92636
 	db $59, MAGIKARP,   20
-	db $b2, TENTACOOL,  20
-	db $e6, TENTACOOL,  20
+	db $b2, VULPIX,  20
+	db $e6, DELIBIRD,  20
 	db $ff, $0,         20
 FishGroup11_Super: ; 92642
-	db $66, TENTACOOL,  40
+	db $66, VENONAT,  40
 	db $b2, $0,         21
-	db $e6, MAGIKARP,   40
-	db $ff, QWILFISH,   40
+	db $e6, KAKUNA,   40
+	db $ff, HAUNTER,   40
 
 FishGroup12:
 FishGroup12_Old: ; 9264e
-	db $b3, MAGIKARP,   10
-	db $d9, MAGIKARP,   10
-	db $ff, POLIWAG,    10
+	db $b3, METAPOD,   10
+	db $d9, SENTRET,   10
+	db $ff, DROWZEE,    10
 FishGroup12_Good: ; 92657
-	db $59, MAGIKARP,   20
-	db $b2, POLIWAG,    20
-	db $e6, POLIWAG,    20
+	db $59, IGGLYBUFF,   20
+	db $b2, ODDISH,    20
+	db $e6, NATU,    20
 	db $ff, $0,         6
 FishGroup12_Super: ; 92663
-	db $66, POLIWAG,    40
+	db $66, DELIBIRD,    40
 	db $b2, $0,         7
-	db $e6, MAGIKARP,   40
-	db $ff, REMORAID,   40
+	db $e6, WOOPER,   40
+	db $ff, MANKEY,   40
 
 ; 9266f
 
 TimeFishGroups: ; 9266f
 ; 0
-	db CORSOLA,    20 ; nite
-	db STARYU,     20 ; day
+	db PERSIAN,    20 ; nite
+	db CUBONE,     20 ; day
 ; 1
-	db CORSOLA,    40 ; nite
-	db STARYU,     40 ; day
+	db BELLOSSOM,    40 ; nite
+	db RHYHORN,     40 ; day
 ; 2
-	db SHELLDER,   20 ; nite
-	db SHELLDER,   20 ; day
+	db MAGNEMITE,   20 ; nite
+	db PHANPY,   20 ; day
 ; 3
-	db SHELLDER,   40 ; nite
-	db SHELLDER,   40 ; day
+	db HOUNDOUR,   40 ; nite
+	db VENONAT,   40 ; day
 ; 4
-	db GOLDEEN,    20 ; nite
-	db GOLDEEN,    20 ; day
+	db GROWLITHE,    20 ; nite
+	db CHIKORITA,    20 ; day
 ; 5
-	db GOLDEEN,    40 ; nite
-	db GOLDEEN,    40 ; day
+	db DELIBIRD,    40 ; nite
+	db PIKACHU,    40 ; day
 ; 6
-	db POLIWAG,    20 ; nite
-	db POLIWAG,    20 ; day
+	db AIPOM,    20 ; nite
+	db LARVITAR,    20 ; day
 ; 7
-	db POLIWAG,    40 ; nite
-	db POLIWAG,    40 ; day
+	db SMOOCHUM,    40 ; nite
+	db VULPIX,    40 ; day
 ; 8
-	db DRATINI,    20 ; nite
-	db DRATINI,    20 ; day
+	db SPEAROW,    20 ; nite
+	db PHANPY,    20 ; day
 ; 9
-	db DRATINI,    40 ; nite
-	db DRATINI,    40 ; day
+	db NATU,    40 ; nite
+	db HORSEA,    40 ; day
 ; 10
-	db QWILFISH,   20 ; nite
-	db QWILFISH,   20 ; day
+	db DUNSPARCE,   20 ; nite
+	db JUMPLUFF,   20 ; day
 ; 11
-	db QWILFISH,   40 ; nite
-	db QWILFISH,   40 ; day
+	db SUDOWOODO,   40 ; nite
+	db GRANBULL,   40 ; day
 ; 12
-	db REMORAID,   20 ; nite
-	db REMORAID,   20 ; day
+	db EEVEE,   20 ; nite
+	db BULBASAUR,   20 ; day
 ; 13
-	db REMORAID,   40 ; nite
-	db REMORAID,   40 ; day
+	db HOOTHOOT,   40 ; nite
+	db PSYDUCK,   40 ; day
 ; 14
-	db GYARADOS,   20 ; nite
-	db GYARADOS,   20 ; day
+	db BLISSEY,   20 ; nite
+	db SLOWKING,   20 ; day
 ; 15
-	db GYARADOS,   40 ; nite
-	db GYARADOS,   40 ; day
+	db SLOWKING,   40 ; nite
+	db MUK,   40 ; day
 ; 16
-	db DRATINI,    10 ; nite
-	db DRATINI,    10 ; day
+	db DODUO,    10 ; nite
+	db VENONAT,    10 ; day
 ; 17
-	db DRATINI,    10 ; nite
-	db DRATINI,    10 ; day
+	db CHARMANDER,    10 ; nite
+	db DROWZEE,    10 ; day
 ; 18
-	db HORSEA,     20 ; nite
-	db HORSEA,     20 ; day
+	db EEVEE,     20 ; nite
+	db MAGNEMITE,     20 ; day
 ; 19
-	db HORSEA,     40 ; nite
-	db HORSEA,     40 ; day
+	db GEODUDE,     40 ; nite
+	db SQUIRTLE,     40 ; day
 ; 20
-	db TENTACOOL,  20 ; nite
-	db TENTACOOL,  20 ; day
+	db PARAS,  20 ; nite
+	db DODUO,  20 ; day
 ; 21
-	db TENTACOOL,  40 ; nite
-	db TENTACOOL,  40 ; day
+	db PSYDUCK,  40 ; nite
+	db HOUNDOUR,  40 ; day
 
 ; 926c7
