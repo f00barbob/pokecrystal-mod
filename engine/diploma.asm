@@ -70,7 +70,7 @@ Function1dd7ae: ; 1dd7ae
 	call PlaceString
 	hlcoord 12, 15
 	ld de, GameTimeHours
-	ld bc, $0204
+	ld bc, $0205 ; more digits?
 	call PrintNum
 	ld [hl], $67
 	inc hl

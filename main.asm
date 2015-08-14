@@ -670,8 +670,8 @@ Function5f1c: ; 5f1c
 	db "<PLAYER>@"
 ; 5f40
 
-Function5f40: ; 5f40
-	ld de, $00a9
+Function5f40: ; 5f40 ;probably save menu? adjusting for screen offset for time?
+	ld de, $00a7 ;ye?
 	add hl, de
 	call Function5f84
 	ret
@@ -713,9 +713,9 @@ Function5f6b: ; 5f6b
 	jp PrintNum
 ; 5f84
 
-Function5f84: ; 5f84
+Function5f84: ; 5f84 ;i have no idea what this is
 	ld de, GameTimeHours
-	ld bc, $0203
+	ld bc, $0205 ; more digits
 	call PrintNum
 	ld [hl], $6d
 	inc hl
@@ -27401,7 +27401,7 @@ Function2530a: ; 2530a (9:530a)
 
 String_2534c: ; 2534c
 	db "#DEX", $4e
-	db "PLAY TIME@"
+	db "TIME@"
 
 String_2535b: ; 2535b
 	db "@"
@@ -27540,9 +27540,9 @@ Function253f4: ; 253f4 (9:53f4)
 	ret
 
 Function25415: ; 25415 (9:5415)
-	hlcoord 11, 12
+	hlcoord 10, 12 ;;wat
 	ld de, GameTimeHours
-	ld bc, $204
+	ld bc, $205 ; more digits
 	call PrintNum
 	inc hl
 	ld de, GameTimeMinutes
@@ -56189,9 +56189,9 @@ Function86810: ; 86810
 	hlcoord 1, 8
 	ld de, .PlayTime
 	call PlaceString
-	hlcoord 3, 9
+	hlcoord 1, 9
 	ld de, GameTimeHours
-	ld bc, $0203
+	ld bc, $0205 ; more digits
 	call PrintNum
 	ld [hl], $63
 	inc hl
@@ -56204,7 +56204,7 @@ Function86810: ; 86810
 ; 868ed
 
 .PlayTime
-	db "PLAY TIME@"
+	db "TIME@"
 ; 868f7
 
 
