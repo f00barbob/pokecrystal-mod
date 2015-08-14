@@ -4,6 +4,7 @@ Route14_BlockData:
 BetaSproutTower8_BlockData:
 	INCBIN "maps/BetaSproutTower8.blk"
 
+Mart_BlockData:
 OlivineMart_BlockData:
 EcruteakMart_BlockData:
 BlackthornMart_BlockData:
@@ -17,7 +18,7 @@ LavenderMart_BlockData:
 ViridianMart_BlockData:
 SaffronMart_BlockData:
 CherrygroveMart_BlockData:
-	INCBIN "maps/OlivineMart.blk"
+	INCBIN "maps/Mart.blk"
 
 Route10North_BlockData:
 	INCBIN "maps/Route10North.blk"
@@ -25,6 +26,7 @@ Route10North_BlockData:
 BetaLakeOfRage_BlockData:
 	INCBIN "maps/BetaLakeOfRage.blk"
 
+PokeCenter1F_BlockData:
 OlivinePokeCenter1F_BlockData:
 MahoganyPokeCenter1F_BlockData:
 EcruteakPokeCenter1F_BlockData:
@@ -46,7 +48,7 @@ CianwoodPokeCenter1F_BlockData:
 ViridianPokeCenter1F_BlockData:
 SaffronPokeCenter1F_BlockData:
 CherrygrovePokeCenter1F_BlockData:
-	INCBIN "maps/OlivinePokeCenter1F.blk"
+	INCBIN "maps/PokeCenter1F.blk"
 
 BetaPewterMuseumOfScience1F_BlockData:
 	INCBIN "maps/BetaPewterMuseumOfScience1F.blk"
