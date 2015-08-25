@@ -11324,6 +11324,9 @@ Function119a1: ; 119a1 (4:59a1)
 	ret
 
 .asm_119eb
+	ld a, [wc6d2] ;;bob
+	cp $2		  ;;bob
+	ret c		  ;;bob
 	call Function11bf7
 	ld hl, wcf63
 	set 7, [hl]
@@ -11535,11 +11538,11 @@ Function11b14: ; 11b14 (4:5b14)
 	ld a, [wc6d7]
 
 Function11b17: ; 11b17 (4:5b17)
-	ld a, [wc6d3]
-	ld c, a
-	ld a, [wc6d2]
+	ld a, [wc6d3] 
+	ld c, a    ;; c = maxlength
+	ld a, [wc6d2] ;;a = curlength
 	cp c
-	ret nc
+	ret nc    ;if >= maxlength, return
 
 	ld a, [wc6d7]
 
@@ -11757,7 +11760,7 @@ Function11c51: ; 11c51
 	ld [wcf63], a
 	ld [wcf64], a
 	ld [hBGMapMode], a
-	ld [wc6d2], a
+	ld [wc6d2], a 
 	ld a, $7
 	ld [hWX], a
 	ret
@@ -11775,7 +11778,7 @@ NameInputLower:
 	db "a b c d e f g h i"
 	db "j k l m n o p q r"
 	db "s t u v w x y z  "
-	db "× ( ) : ; [ ] ", $e1, " ", $e2
+	db "a e i o u y w ", $e1, " ", $e2
 	db "UPPER  DEL   END "
 BoxNameInputLower:
 	db "a b c d e f g h i"
@@ -11788,7 +11791,7 @@ NameInputUpper:
 	db "A B C D E F G H I"
 	db "J K L M N O P Q R"
 	db "S T U V W X Y Z  "
-	db "- ? ! / . ,      "
+	db "A I U E O Y W A  "
 	db "lower  DEL   END "
 BoxNameInputUpper:
 	db "A B C D E F G H I"
@@ -11997,7 +12000,7 @@ Function1201b: ; 1201b (4:601b)
 	inc [hl]
 	ret
 
-Function1203a: ; 1203a (4:603a)
+Function1203a: ; 1203a (4:603a) ;; there are two of these types of thingses
 	ld hl, hJoyPressed ; $ffa7
 	ld a, [hl]
 	and A_BUTTON
@@ -12014,17 +12017,17 @@ Function1203a: ; 1203a (4:603a)
 	ret
 
 .a
-	call Function12185
-	cp $1
-	jr z, .select
-	cp $2
+	call Function12185 	;; checks the row
+	cp $1				; maps to the "lower"
+	jr z, .select		
+	cp $2				;; maps to delete		
 	jr z, .b
-	cp $3
+	cp $3				;; maps to end
 	jr z, .asm_120a1
-	call Function11c11
-	call Function121ac
-	jr c, .start
-	ld hl, wc6d2
+	call Function11c11 ;; maybe the screen update routine
+	call Function121ac ;; if < maxlength, add the character
+	jr c, .start       ;; jump to start function if max length hit
+	ld hl, wc6d2		;; probably proceed to update the cursor of something
 	ld a, [hl]
 	cp $10
 	ret nz
@@ -12061,8 +12064,11 @@ Function1203a: ; 1203a (4:603a)
 	ld [hl], $4e
 	ret
 
-.asm_120a1
-	call Function11bf7
+.asm_120a1 ;; end function
+	ld a, [wc6d2] ;;bob
+	cp $2			;;bob
+	ret c			;;bob
+	call Function11bf7 ;; probably a function to copy the text?
 	ld hl, wcf63
 	set 7, [hl]
 	ret
@@ -12251,7 +12257,7 @@ Function121ac: ; 121ac (4:61ac)
 	jp Function11b17
 ; 121b2 (4:61b2)
 
-Function121b2: ; 121b2
+Function121b2: ; 121b2 ;; possibly name length test?
 	ld a, [wc6d2]
 	and a
 	ret z
@@ -23399,7 +23405,7 @@ Function16f7a: ; 16f7a (5:6f7a)
 	call PrintText
 	call YesNoBox
 	pop de
-	jr c, .nonickname
+	;jr c, .nonickname ; we always want a nick
 	ld a, $1
 	ld [wd26b], a
 	xor a
@@ -56699,13 +56705,13 @@ ChrisNameMenuHeader: ; 882b5
 
 MenuData2_0x882be: ; 882be
 	db $91 ; flags
-	db 5 ; items
+	db 1 ; items
 	db "NEW NAME@"
 Unknown_882c9: ; 882c9
-	db "CHRIS@"
-	db "MAT@"
-	db "ALLAN@"
-	db "JON@"
+	;db "CHRIS@"
+	;db "MAT@"
+	;db "ALLAN@"
+	;db "JON@"
 	db 2 ; displacement
 	db " NAME @" ; title
 ; 882e5
@@ -56721,13 +56727,13 @@ KrisNameMenuHeader: ; 882e5
 
 MenuData2_0x882ee: ; 882ee
 	db $91 ; flags
-	db 5 ; items
+	db 1 ; items
 	db "NEW NAME@"
 Unknown_882f9: ; 882f9
-	db "KRIS@"
-	db "AMANDA@"
-	db "JUANA@"
-	db "JODI@"
+	;db "KRIS@"
+	;db "AMANDA@"
+	;db "JUANA@"
+	;db "JODI@"
 	db 2 ; displacement
 	db " NAME @" ; title
 ; 88318

@@ -587,8 +587,8 @@ endr
 	ld [wd265], a
 	call GetPokemonName
 
-	call YesNoBox
-	jp c, .asm_ebe2
+	call YesNoBox ;; give a nickname?
+	;jp c, .asm_ebe2 ;; if no.. so we just ignore
 
 	ld a, [PartyCount]
 	dec a
@@ -649,7 +649,7 @@ endr
 	call GetPokemonName
 
 	call YesNoBox
-	jr c, .asm_ebaf
+	;jr c, .asm_ebaf ;force yes
 
 	xor a
 	ld [CurPartyMon], a
