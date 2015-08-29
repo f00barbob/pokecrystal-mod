@@ -9603,8 +9603,8 @@ endr
 	callba Function4db49
 
 .asm_e3a6
-	;callba Function4db3b ; don't prompt for starter nick?
-	;pop de
+	callba Function4db3b ; prompt for starter nick?
+	pop de				; result of choice from Yes
 	;jr c, .asm_e3b2
 	call Functione3de ; pretty sure this is the keyboard jump
 

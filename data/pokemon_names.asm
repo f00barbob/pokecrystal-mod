@@ -126,7 +126,7 @@
 	db "MAGMAR@@@@"
 	db "PINSIR@@@@"
 	db "TAUROS@@@@"
-	db "MAGIKARP@@"
+	db "MAGIKRAP@@"
 	db "GYARADOS@@"
 	db "LAPRAS@@@@"
 	db "DITTO@@@@@"
