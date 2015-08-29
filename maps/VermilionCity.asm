@@ -148,13 +148,10 @@ UnknownText_0x1aaaca:
 	done
 
 UnknownText_0x1aaae2:
-	text "MACHOP is summon-"
-	line "ing snorlax to"
-	para "come and kick"
-	line "your ass."
-	para "MLG420 360 no-"
-	line "scope ur mom."
-	cont "ZOMG..."
+	text "GUOUOUOUOUOUOU-"
+	line "GOGOGOGOGGOGO!"
+	line "MACHOP summoned"
+	line "SNORLAX!"
 	done
 
 UnknownText_0x1aab1a:

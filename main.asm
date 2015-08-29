@@ -9603,10 +9603,10 @@ endr
 	callba Function4db49
 
 .asm_e3a6
-	callba Function4db3b
-	pop de
-	jr c, .asm_e3b2
-	call Functione3de
+	callba Function4db3b ; prompt for starter nick?
+	pop de				; result of choice from Yes
+	;jr c, .asm_e3b2
+	call Functione3de ; pretty sure this is the keyboard jump
 
 .asm_e3b2
 	pop bc
@@ -11775,31 +11775,31 @@ INCBIN "gfx/unknown/011cc7.2bpp"
 ; 11ce7
 
 NameInputLower:
-	db "a b c d e f g h i"
-	db "j k l m n o p q r"
-	db "s t u v w x y z  "
-	db "a e i o u y w ", $e1, " ", $e2
-	db "UPPER  DEL   END "
+	db "a b c d j f g h i"
+	db "e k l q   m r p o"
+	db "u t n v w z s x y"
+	db "a e o ", $e1, " ", $e2, " y u r i"
+	db "UDDER  DERP  YEE "
 BoxNameInputLower:
-	db "a b c d e f g h i"
-	db "j k l m n o p q r"
-	db "s t u v w x y z  "
-	db "é 'd 'l 'm 'r 's 't 'v 0"
-	db "1 2 3 4 5 6 7 8 9"
-	db "UPPER  DEL   END "
+	db "BloodTrailPJSaltP"
+	db "unchTreesVolcania"
+	db "BionicBunionOneHa"
+	db "ndOSFrogPanicVisP"
+	db "MSTwinOMGScootsFu"
+	db "zzyOtterOODBStyle"
 NameInputUpper:
-	db "A B C D E F G H I"
-	db "J K L M N O P Q R"
-	db "S T U V W X Y Z  "
-	db "A I U E O Y W A  "
-	db "lower  DEL   END "
+	db "A B C D J F G H I"
+	db "E K L Q   M R P O"
+	db "U T N V W Z S X Y"
+	db "A E I O U Y A O I"
+	db "loser  HERP  YEE "
 BoxNameInputUpper:
-	db "A B C D E F G H I"
-	db "J K L M N O P Q R"
-	db "S T U V W X Y Z  "
-	db "× ( ) : ; [ ] ", $e1, " ", $e2
-	db "- ? ! ♂ ♀ / . , &"
-	db "lower  DEL   END "
+	db "KappaKippaKeepoDa"
+	db "nsGameWutFaceHeyG"
+	db "uysKAPOWSSSsssKre"
+	db "yGasmFrankerZTTou"
+	db "rsFailFishTriHard"
+	db "KevinTurtleNotATK"
 ; 11e5d
 
 GFX_11e5d: ; 11e5d
